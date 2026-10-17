@@ -1,17 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="520" viewBox="0 0 600 520" role="img" aria-labelledby="title desc">
-<title id="title">Darkreader404 · Contribution market</title><desc id="desc">365 days of actual GitHub contributions. Total 6. Eighteen complete seven-day candles show daily first/last and low/high counts; the heatmap shows each actual day.</desc>
+<title id="title">Darkreader404 · Contribution market</title><desc id="desc">365 days of actual GitHub contributions. Total 7. Eighteen complete seven-day candles show daily first/last and low/high counts; the heatmap shows each actual day.</desc>
 <defs><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#17263b" stop-opacity=".85"/><stop offset="1" stop-color="#111d2d" stop-opacity=".45"/></linearGradient><radialGradient id="aura"><stop stop-color="#a3ffcf" stop-opacity=".13"/><stop offset="1" stop-color="#a3ffcf" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#ff739b"/><stop offset="1" stop-color="#ff739b" stop-opacity=".25"/></linearGradient></defs>
+<defs><clipPath id="frame-clip"><rect x="1" y="1" width="598" height="518" rx="28"/></clipPath></defs>
 <style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.6}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>
 <rect x="1" y="1" width="598" height="518" rx="28" fill="#080d18"/>
-<ellipse cx="510" cy="35" rx="240" ry="250" fill="url(#aura)"/>
+<ellipse cx="510" cy="35" rx="240" ry="250" fill="url(#aura)" clip-path="url(#frame-clip)"/>
 <rect x="1.5" y="1.5" width="597" height="517" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>
 <path d="M28 1.5H572" stroke="#ffffff" stroke-opacity=".2"/>
 <text x="28" y="34" fill="#a3ffcf" font-size="13" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" letter-spacing="1.2">02 / CONTRIBUTION MARKET</text>
 <text x="28" y="68" fill="#edf6ff" font-size="24" font-weight="700" font-family="Arial,Helvetica,sans-serif" >Build a little. Compound it.</text>
-<text x="28" y="134" fill="#edf6ff" font-size="50" font-weight="700" font-family="Arial,Helvetica,sans-serif" >6</text>
+<text x="28" y="134" fill="#edf6ff" font-size="50" font-weight="700" font-family="Arial,Helvetica,sans-serif" >7</text>
 <text x="125" y="111" fill="#93a8bf" font-size="13" font-weight="500" font-family="'SFMono-Regular',Consolas,monospace" >PUBLIC GITHUB CONTRIBUTIONS</text>
 <text x="125" y="134" fill="#93a8bf" font-size="13" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >ROLLING 365 DAYS</text>
-<text x="28" y="158" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >4 active days / 2 peak in one day</text>
+<text x="28" y="158" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >4 active days / 3 peak in one day</text>
 <text x="28" y="193" fill="#a3ffcf" font-size="13" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" >18 × 7-DAY CANDLES</text>
 <text x="28" y="214" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >Body: first / last day · wick: min / max</text>
 <path d="M28 294H572M28 254H572" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-dasharray="3 6"/>
@@ -29,10 +30,10 @@
 <g class="candle" style="animation-delay:0.715s"><title>2026-08-30 to 2026-09-05: first 0, last 0, low 0, high 0 contributions/day</title><path d="M374.8 294.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="370.8" y="293.0" width="8" height="2.0" rx="1" fill="#a3ffcf"/></g>
 <g class="candle" style="animation-delay:0.780s"><title>2026-09-06 to 2026-09-12: first 0, last 0, low 0, high 0 contributions/day</title><path d="M405.0 294.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="401.0" y="293.0" width="8" height="2.0" rx="1" fill="#a3ffcf"/></g>
 <g class="candle" style="animation-delay:0.845s"><title>2026-09-13 to 2026-09-19: first 0, last 0, low 0, high 0 contributions/day</title><path d="M435.2 294.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="431.2" y="293.0" width="8" height="2.0" rx="1" fill="#a3ffcf"/></g>
-<g class="candle" style="animation-delay:0.910s"><title>2026-09-20 to 2026-09-26: first 2, last 0, low 0, high 2 contributions/day</title><path d="M465.5 234.0V294.0" stroke="#ff739b" stroke-width="1.5"/><rect x="461.5" y="234.0" width="8" height="60.0" rx="1" fill="#ff739b"/></g>
+<g class="candle" style="animation-delay:0.910s"><title>2026-09-20 to 2026-09-26: first 2, last 0, low 0, high 2 contributions/day</title><path d="M465.5 254.0V294.0" stroke="#ff739b" stroke-width="1.5"/><rect x="461.5" y="254.0" width="8" height="40.0" rx="1" fill="#ff739b"/></g>
 <g class="candle" style="animation-delay:0.975s"><title>2026-09-27 to 2026-10-03: first 0, last 0, low 0, high 0 contributions/day</title><path d="M495.8 294.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="491.8" y="293.0" width="8" height="2.0" rx="1" fill="#a3ffcf"/></g>
-<g class="candle" style="animation-delay:1.040s"><title>2026-10-04 to 2026-10-10: first 0, last 1, low 0, high 1 contributions/day</title><path d="M526.0 264.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="522.0" y="264.0" width="8" height="30.0" rx="1" fill="#a3ffcf"/></g>
-<g class="candle" style="animation-delay:1.105s"><title>2026-10-11 to 2026-10-17: first 0, last 2, low 0, high 2 contributions/day</title><path d="M556.2 234.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="552.2" y="234.0" width="8" height="60.0" rx="1" fill="#a3ffcf"/></g>
+<g class="candle" style="animation-delay:1.040s"><title>2026-10-04 to 2026-10-10: first 0, last 1, low 0, high 1 contributions/day</title><path d="M526.0 274.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="522.0" y="274.0" width="8" height="20.0" rx="1" fill="#a3ffcf"/></g>
+<g class="candle" style="animation-delay:1.105s"><title>2026-10-11 to 2026-10-17: first 0, last 3, low 0, high 3 contributions/day</title><path d="M556.2 234.0V294.0" stroke="#a3ffcf" stroke-width="1.5"/><rect x="552.2" y="234.0" width="8" height="60.0" rx="1" fill="#a3ffcf"/></g>
 <text x="28" y="316" fill="#93a8bf" font-size="13" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >14 JUN 2026</text>
 <text x="572" y="316" fill="#93a8bf" font-size="13" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">17 OCT 2026</text>
 <path d="M28 335H572" stroke="#ffffff" stroke-opacity=".1"/>
@@ -374,7 +375,7 @@
 <rect x="518" y="411" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-17: 0 contributions</title></rect>
 <rect x="518" y="421" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-18: 0 contributions</title></rect>
 <rect x="518" y="431" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-19: 0 contributions</title></rect>
-<rect x="528" y="371" width="6" height="6" rx="1.5" fill="#a3ffcf"><title>2026-09-20: 2 contributions</title></rect>
+<rect x="528" y="371" width="6" height="6" rx="1.5" fill="#6cc99e"><title>2026-09-20: 2 contributions</title></rect>
 <rect x="528" y="381" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-21: 0 contributions</title></rect>
 <rect x="528" y="391" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-22: 0 contributions</title></rect>
 <rect x="528" y="401" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-09-23: 0 contributions</title></rect>
@@ -401,8 +402,8 @@
 <rect x="558" y="401" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-10-14: 0 contributions</title></rect>
 <rect x="558" y="411" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-10-15: 0 contributions</title></rect>
 <rect x="558" y="421" width="6" height="6" rx="1.5" fill="#1b2a3c"><title>2026-10-16: 0 contributions</title></rect>
-<rect x="558" y="431" width="6" height="6" rx="1.5" fill="#a3ffcf"><title>2026-10-17: 2 contributions</title></rect>
+<rect x="558" y="431" width="6" height="6" rx="1.5" fill="#a3ffcf"><title>2026-10-17: 3 contributions</title></rect>
 <text x="28" y="457" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >18 OCT 2025 — 17 OCT 2026</text>
 <text x="28" y="480" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >Public GitHub calendar</text>
-<text x="28" y="502" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >17 Oct 2026 13:19 UTC · current day may still change</text>
+<text x="28" y="502" fill="#93a8bf" font-size="13" font-weight="400" font-family="Arial,Helvetica,sans-serif" >17 Oct 2026 13:25 UTC · current day may still change</text>
 </svg>

@@ -32,6 +32,7 @@
   <g transform="translate(465 162)" fill="none">
     <circle r="88" stroke="#67e8f9" stroke-opacity=".13"/><circle r="71" stroke="#a3ffcf" stroke-opacity=".15" stroke-dasharray="2 9"/>
     <path d="M-12-55h24v15h15v24H12v15h-24v-15h-15v-24h15z" fill="#a3ffcf" fill-opacity=".08" stroke="#a3ffcf" stroke-opacity=".28"/>
+    <path d="M-82 26h25l9-9 10 18 12-49 14 76 13-36h14l9-9 9 9h49" stroke="#67e8f9" stroke-opacity=".3" stroke-width="2"/>
     <path class="beat" d="M-82 26h25l9-9 10 18 12-49 14 76 13-36h14l9-9 9 9h49" stroke="#67e8f9" stroke-width="2"/>
   </g>
   <text x="32" y="93" class="mono" font-size="13" letter-spacing="3" fill="#67e8f9">01 / IDENTITY</text>

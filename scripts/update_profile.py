@@ -166,9 +166,10 @@ def frame(title, description, accent, width=1200, height=340):
     return ['<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="0 0 %s %s" role="img" aria-labelledby="title desc">' % (width, height, width, height),
             '<title id="title">%s</title><desc id="desc">%s</desc>' % (esc(title), esc(description)),
             '<defs><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#17263b" stop-opacity=".85"/><stop offset="1" stop-color="#111d2d" stop-opacity=".45"/></linearGradient><radialGradient id="aura"><stop stop-color="%s" stop-opacity=".13"/><stop offset="1" stop-color="%s" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#ff739b"/><stop offset="1" stop-color="#ff739b" stop-opacity=".25"/></linearGradient></defs>' % (accent, accent),
+            '<defs><clipPath id="frame-clip"><rect x="1" y="1" width="%s" height="%s" rx="28"/></clipPath></defs>' % (width - 2, height - 2),
             '<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.6}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>',
             '<rect x="1" y="1" width="%s" height="%s" rx="28" fill="#080d18"/>' % (width - 2, height - 2),
-            '<ellipse cx="%s" cy="35" rx="%s" ry="250" fill="url(#aura)"/>' % (1010 if width == 1200 else 510, 400 if width == 1200 else 240),
+            '<ellipse cx="%s" cy="35" rx="%s" ry="250" fill="url(#aura)" clip-path="url(#frame-clip)"/>' % (1010 if width == 1200 else 510, 400 if width == 1200 else 240),
             '<rect x="1.5" y="1.5" width="%s" height="%s" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>' % (width - 3, height - 3),
             '<path d="M%s 1.5H%s" stroke="#ffffff" stroke-opacity=".2"/>' % (margin, width - margin)]
 

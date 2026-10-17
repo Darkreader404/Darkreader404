@@ -10,6 +10,8 @@ The profile is built from Markdown links and self-contained SVG images. It needs
 
 All animated assets have a visible static baseline and respect `prefers-reduced-motion`. The hero and telemetry panels have separate narrow-screen compositions selected using `<picture>`. Project cards wrap into a single column on narrow screens. README alt text and ordinary text links preserve the content if images are unavailable.
 
+The user's full hover/glitch component is adapted in `preview/index.html`, a standalone browser preview. Its native links use the original seven clip masks and two-second glitch keyframes, turning purple to lime on pointer hover or keyboard focus. This interaction runs in the HTML preview; SVGs embedded as README images cannot receive the same pointer interaction. The preview is local and has not been published as a website.
+
 ## Content and data
 
 Identity and pronouns come from the supplied screenshot. Project descriptions and DRONEX's OpenSCAD/Python languages were checked against the public repositories. Medical and market visuals are design themes, with no invented professional credentials, medical readings, or trading returns. Follower, star, and repository counts are intentionally not frozen into the artwork.

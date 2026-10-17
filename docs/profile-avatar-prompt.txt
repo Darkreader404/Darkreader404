@@ -1,0 +1,12 @@
+Use case: stylized-concept.
+Asset type: square GitHub profile avatar for Darkreader404 / Geo Armstrong, designed to be cropped to a circle and readable at very small size.
+Primary request: create a premium cyberpunk identity avatar matching a neon glassmorphism profile about code, medical-inspired human-centered technology, and stock-market signals.
+Subject: an original front-facing geometric robotic visor/mask emblem, friendly and enigmatic, formed from dark smoked glass with two luminous mint rectangular eyes, subtly recalling a simple green pixel identicon. No human portrait. A small mint medical plus shape is integrated into the forehead; the lower mask has one elegant ECG pulse stroke. Very subtle candlestick geometry behind the head integrates the stock-market theme.
+Style/medium: sophisticated 3D glass and brushed obsidian render, precise graphic silhouette, polished but restrained, strong icon design.
+Composition/framing: single centered emblem filling about 68% of a square, generous safe margin all around for circular crop, smooth dark navy background with very soft cyan/violet halo, no outer frame or text.
+Lighting/mood: dramatic cyan and mint edge lighting with a restrained magenta/violet rim, crisp shape separation and high contrast.
+Color palette: navy #080d18, cyan #67e8f9, mint #a3ffcf, violet #b08cff, tiny pink #ff739b highlights.
+Materials/textures: translucent beveled smoked glass, fine metallic edges, premium illuminated surfaces.
+Constraints: square 1024x1024 or higher, opaque background, no words, letters, numbers, watermark, brand logos, busy interface panels, tiny labels, red cross, weapons, or photoreal human face. Keep central silhouette uncluttered and legible as a 40px circular GitHub avatar.
+
+Generated with the built-in image_gen tool. Final upload export: assets/profile-avatar.png, 500 × 500 PNG. Full original remains in the Codex generated_images folder.
