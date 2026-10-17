@@ -1,28 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="584" height="300" viewBox="0 0 584 300" role="img" aria-labelledby="title desc">
-  <title id="title">DRONEX</title><desc id="desc">A mini hand-controlled drone. OpenSCAD, Python, and hardware. Open the repository.</desc>
+  <title id="title">DRONEX project window</title><desc id="desc">A mini hand-controlled drone. Turning gestures into motion. OpenSCAD, Python. Open the repository.</desc>
   <defs>
-    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#182b39"/><stop offset="1" stop-color="#0c1423"/></linearGradient>
-    <radialGradient id="halo"><stop stop-color="#358477" stop-opacity=".3"/><stop offset="1" stop-color="#358477" stop-opacity="0"/></radialGradient>
-    <linearGradient id="edge" x2="1" y2="1"><stop stop-color="#b4ffdd" stop-opacity=".4"/><stop offset=".6" stop-color="#6c899d" stop-opacity=".1"/><stop offset="1" stop-color="#67e8f9" stop-opacity=".3"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#315e71" stop-opacity=".8"/><stop offset=".45" stop-color="#123446" stop-opacity=".78"/><stop offset="1" stop-color="#0d1d23"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3fbff" stop-opacity=".95"/><stop offset=".28" stop-color="#5fe3ff" stop-opacity=".45"/><stop offset=".67" stop-color="#8cf4ff" stop-opacity=".18"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".7"/></linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#e3fbff"/><stop offset=".47" stop-color="#82b4ca"/><stop offset=".51" stop-color="#effaff"/><stop offset="1" stop-color="#5fe3ff"/></linearGradient>
+    <linearGradient id="jelly" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3fbff" stop-opacity=".37"/><stop offset=".42" stop-color="#5fe3ff" stop-opacity=".16"/><stop offset="1" stop-color="#8cf4ff" stop-opacity=".05"/></linearGradient>
+    <linearGradient id="titlebar" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5fe3ff" stop-opacity=".2"/><stop offset=".65" stop-color="#8cf4ff" stop-opacity=".08"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".18"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#7dd6fc" stop-opacity=".3"/><stop offset="1" stop-color="#7dd6fc" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#5fe3ff" stroke-opacity=".05"/></pattern>
+    <path id="sparkle" d="M0-11 3-3 11 0 3 3 0 11-3 3-11 0-3-3Z"/>
+
+    <clipPath id="panel"><rect x="1" y="1" width="582" height="298" rx="22"/></clipPath>
   </defs>
-  <rect x="1" y="1" width="582" height="298" rx="24" fill="#080d18" stroke="url(#edge)"/>
-  <rect x="12" y="12" width="560" height="276" rx="18" fill="url(#glass)"/>
-  <ellipse cx="470" cy="186" rx="105" ry="103" fill="url(#halo)"/>
-  <g font-family="'Courier New',monospace" font-size="11" letter-spacing="1.6" fill="#a3ffcf"><text x="32" y="46">BUILD_01</text><text x="550" y="46" text-anchor="end" fill="#93a8bf">HARDWARE</text></g>
-  <text x="32" y="99" font-family="Arial,Helvetica,sans-serif" font-size="37" font-weight="700" letter-spacing="-1" fill="#edf6ff">DRONEX<tspan fill="#a3ffcf"> ↗</tspan></text>
-  <g font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#a8bbce"><text x="32" y="136">A mini hand-controlled drone.</text><text x="32" y="161">Turning gestures into motion.</text></g>
-  <g transform="translate(454 185)" fill="none" stroke="#a3ffcf">
-    <path d="m-28-27 57 54m-57 0 57-54" stroke-width="5" stroke-opacity=".25"/><path d="m-28-27 57 54m-57 0 57-54" stroke-width="1.5"/>
-    <g stroke-opacity=".5"><ellipse cx="-38" cy="-35" rx="24" ry="9"/><ellipse cx="38" cy="-35" rx="24" ry="9"/><ellipse cx="-38" cy="35" rx="24" ry="9"/><ellipse cx="38" cy="35" rx="24" ry="9"/></g>
-    <path d="M-56-35h36m40 0h36M-56 35h36m40 0h36" stroke-opacity=".8"/>
-    <path d="m0-17 15 9v18L0 19l-15-9V-8Z" fill="#a3ffcf" fill-opacity=".08"/><circle r="3" fill="#a3ffcf" stroke="none"/>
-    <path d="M-70-55h-9v17m140-17h18v17M-79 38v17h9m149-17v17H61" stroke="#67e8f9" stroke-opacity=".25"/>
+  <rect x="1" y="1" width="582" height="298" rx="22" fill="#041019" stroke="url(#edge)"/>
+  <g clip-path="url(#panel)">
+    <rect x="5" y="5" width="574" height="290" rx="18" fill="url(#glass)"/>
+    <ellipse cx="482" cy="149" rx="151" ry="138" fill="url(#glow)"/>
+    <rect x="5" y="5" width="574" height="290" fill="url(#grid)"/>
+    <path d="M5 6H579V39H5Z" fill="url(#titlebar)"/>
+    <path d="M5 39H579" stroke="#e3fbff" stroke-opacity=".18"/>
+    <path d="M7 60 350 7h109L7 112Z" fill="#fff" fill-opacity=".025"/>
+    <path d="M10 22V16a6 6 0 0 1 6-6H194" fill="none" stroke="#fff" stroke-opacity=".23"/>
   </g>
-  <rect x="32" y="198" width="103" height="28" rx="7" fill="#a3ffcf" fill-opacity=".06" stroke="#a3ffcf" stroke-opacity=".22"/>
-  <rect x="143" y="198" width="77" height="28" rx="7" fill="#67e8f9" fill-opacity=".06" stroke="#67e8f9" stroke-opacity=".22"/>
-  <text x="83.5" y="216" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#a3ffcf">OpenSCAD</text>
-  <text x="181.5" y="216" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#67e8f9">Python</text>
-  <path d="M32 245H552" stroke="#b4d3e8" stroke-opacity=".12"/>
-  <text x="32" y="272" font-family="'Courier New',monospace" font-size="11" letter-spacing=".8" fill="#93a8bf">GESTURE → CONTROL → FLIGHT</text>
-  <text x="550" y="272" text-anchor="end" font-family="'Courier New',monospace" font-size="11" fill="#a3ffcf">VIEW SOURCE ↗</text>
+  <g fill="#e3fbff" font-family="'Courier New',monospace" font-size="10" letter-spacing="1.1">
+    <use href="#sparkle" transform="translate(24 23) scale(.45)" fill="#8cf4ff"/>
+    <text x="39" y="27">PROJECT_01.exe</text>
+  </g>
+  <g fill="url(#jelly)" stroke="#e3fbff" stroke-opacity=".35"><rect x="498" y="13" width="17" height="17" rx="5"/><rect x="521" y="13" width="17" height="17" rx="5"/><rect x="544" y="13" width="17" height="17" rx="5"/></g>
+  <g fill="none" stroke="#e3fbff" stroke-width="1" stroke-linecap="round"><path d="M503 24h7"/><rect x="526" y="18" width="7" height="7" rx="1"/><path d="m550 19 5 5m0-5-5 5"/></g>
+  <text x="32" y="69" font-family="'Courier New',monospace" font-size="10" letter-spacing="1.6" fill="#a5fff1">HARDWARE × GESTURE</text>
+  <text x="31" y="114" font-family="Arial,Helvetica,sans-serif" font-size="43" font-style="italic" font-weight="900" letter-spacing="-2" fill="url(#chrome)">DRONEX</text>
+  <path d="M33 123H184" stroke="#8cf4ff" stroke-opacity=".4"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#e3fbff"><text x="32" y="153">A mini hand-controlled drone.</text><text x="32" y="177" fill="#a9cbda" font-size="14">Turning gestures into motion.</text></g>
+  <rect x="32" y="199" width="100" height="27" rx="13.5" fill="#8cf4ff" fill-opacity=".08" stroke="#8cf4ff" stroke-opacity=".4"/><path d="M43 204h78" stroke="#fff" stroke-opacity=".18"/><text x="82.0" y="217" text-anchor="middle" fill="#8cf4ff" font-size="11" font-family="Arial,Helvetica,sans-serif">OpenSCAD</text><rect x="141" y="199" width="76" height="27" rx="13.5" fill="#a5fff1" fill-opacity=".08" stroke="#a5fff1" stroke-opacity=".4"/><path d="M152 204h54" stroke="#fff" stroke-opacity=".18"/><text x="179.0" y="217" text-anchor="middle" fill="#a5fff1" font-size="11" font-family="Arial,Helvetica,sans-serif">Python</text>
+  <g transform="translate(458 152)">
+    <ellipse rx="79" ry="56" transform="rotate(-29)" fill="none" stroke="#5fe3ff" stroke-opacity=".3"/>
+    <ellipse rx="69" ry="27" transform="rotate(28)" fill="none" stroke="#8cf4ff" stroke-opacity=".3"/>
+    <path d="m-27-24 54 48m-54 0 54-48" stroke="#5fe3ff" stroke-width="10" stroke-opacity=".12"/>
+    <path d="m-27-24 54 48m-54 0 54-48" stroke="url(#chrome)" stroke-width="3"/>
+    <g fill="url(#jelly)" stroke="url(#edge)" stroke-width="1.2"><ellipse cx="-35" cy="-30" rx="26" ry="11"/><ellipse cx="35" cy="-30" rx="26" ry="11"/><ellipse cx="-35" cy="30" rx="26" ry="11"/><ellipse cx="35" cy="30" rx="26" ry="11"/></g>
+    <g fill="none" stroke="#8cf4ff" stroke-linecap="round"><path d="M-52-30h34m36 0h34M-52 30h34m36 0h34"/><path d="M-53-34h18m52 0h18M-53 26h18m52 0h18" stroke="#fff" stroke-opacity=".45"/></g>
+    <path d="m0-19 17 9V11L0 21l-17-10V-10Z" fill="url(#jelly)" stroke="url(#edge)"/>
+    <path d="m-9-8 9-5 9 5" fill="none" stroke="#fff" stroke-opacity=".6"/>
+    <circle r="4" fill="#bdfff7"/>
+    <use href="#sparkle" transform="translate(66 -49) scale(.55)" fill="#a5fff1"/>
+    <use href="#sparkle" transform="translate(-59 51) scale(.35)" fill="#8cf4ff"/>
+    <text x="0" y="80" text-anchor="middle" fill="#5fe3ff" font-family="'Courier New',monospace" font-size="9" letter-spacing="2">GESTURE LINK</text>
+  </g>
+  <path d="M32 246H552" stroke="#e3fbff" stroke-opacity=".15"/>
+  <g font-family="'Courier New',monospace" font-size="10" letter-spacing=".8"><text x="32" y="273" fill="#a9cbda">GESTURE → CONTROL → FLIGHT</text><text x="550" y="273" text-anchor="end" fill="#8cf4ff">OPEN REPO ↗</text></g>
 </svg>

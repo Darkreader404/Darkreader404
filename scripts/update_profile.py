@@ -41,7 +41,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 UTC = dt.timezone.utc
-COLORS = {"cyan": "#67e8f9", "mint": "#a3ffcf", "pink": "#ff739b", "violet": "#b08cff"}
+COLORS = {"cyan": "#8cf4ff", "mint": "#bdfff7", "pink": "#a5fff1", "violet": "#5fe3ff"}
 
 
 class CalendarParser(HTMLParser):
@@ -155,23 +155,34 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def text(x, y, value, size=13, color="#93a8bf", weight=400, mono=False, **attrs):
+def text(x, y, value, size=13, color="#b3d2df", weight=400, mono=False, **attrs):
     extra = " ".join('%s="%s"' % (key.replace("_", "-"), esc(value)) for key, value in attrs.items())
     family = "'SFMono-Regular',Consolas,monospace" if mono else "Arial,Helvetica,sans-serif"
     return '<text x="%s" y="%s" fill="%s" font-size="%s" font-weight="%s" font-family="%s" %s>%s</text>' % (x, y, color, size, weight, family, extra, esc(value))
 
 
+def panel(x, y, width, height):
+    return '<rect x="%s" y="%s" width="%s" height="%s" rx="18" fill="#0c191f" fill-opacity=".55" stroke="#e3fbff" stroke-opacity=".13"/>' % (x, y, width, height)
+
+
+def sparkle(x, y, radius=10, color="#e3fbff"):
+    return '<path d="M%s %sQ%s %s %s %sQ%s %s %s %sQ%s %s %s %sQ%s %s %s %sZ" fill="%s"/>' % (x, y-radius, x, y, x+radius, y, x, y, x, y+radius, x, y, x-radius, y, x, y, x, y-radius, color)
+
+
 def frame(title, description, accent, width=1200, height=340):
-    margin = 44 if width == 1200 else 28
+    mobile = width == 600
     return ['<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="0 0 %s %s" role="img" aria-labelledby="title desc">' % (width, height, width, height),
             '<title id="title">%s</title><desc id="desc">%s</desc>' % (esc(title), esc(description)),
-            '<defs><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#17263b" stop-opacity=".85"/><stop offset="1" stop-color="#111d2d" stop-opacity=".45"/></linearGradient><radialGradient id="aura"><stop stop-color="%s" stop-opacity=".13"/><stop offset="1" stop-color="%s" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#ff739b"/><stop offset="1" stop-color="#ff739b" stop-opacity=".25"/></linearGradient></defs>' % (accent, accent),
-            '<defs><clipPath id="frame-clip"><rect x="1" y="1" width="%s" height="%s" rx="28"/></clipPath></defs>' % (width - 2, height - 2),
-            '<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.6}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>',
-            '<rect x="1" y="1" width="%s" height="%s" rx="28" fill="#080d18"/>' % (width - 2, height - 2),
-            '<ellipse cx="%s" cy="35" rx="%s" ry="250" fill="url(#aura)" clip-path="url(#frame-clip)"/>' % (1010 if width == 1200 else 510, 400 if width == 1200 else 240),
-            '<rect x="1.5" y="1.5" width="%s" height="%s" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>' % (width - 3, height - 3),
-            '<path d="M%s 1.5H%s" stroke="#ffffff" stroke-opacity=".2"/>' % (margin, width - margin)]
+            '<defs><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2b5364" stop-opacity=".83"/><stop offset=".47" stop-color="#123446" stop-opacity=".78"/><stop offset="1" stop-color="#0c191f" stop-opacity=".96"/></linearGradient><linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3fbff" stop-opacity=".8"/><stop offset=".28" stop-color="#8cf4ff" stop-opacity=".22"/><stop offset=".57" stop-color="#5fe3ff" stop-opacity=".6"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".3"/></linearGradient><linearGradient id="titlebar" x2="0" y2="1"><stop stop-color="#e3fbff" stop-opacity=".18"/><stop offset=".48" stop-color="#e3fbff" stop-opacity=".05"/><stop offset=".51" stop-color="#5fe3ff" stop-opacity=".03"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".12"/></linearGradient><radialGradient id="aura"><stop stop-color="%s" stop-opacity=".23"/><stop offset="1" stop-color="%s" stop-opacity="0"/></radialGradient><radialGradient id="pink-aura"><stop stop-color="#a5fff1" stop-opacity=".16"/><stop offset="1" stop-color="#a5fff1" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#e4fefe"/><stop offset=".32" stop-color="#a5fff1"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".45"/></linearGradient><clipPath id="frame-clip"><rect x="1" y="1" width="%s" height="%s" rx="28"/></clipPath></defs>' % (accent, accent, width - 2, height - 2),
+            '<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.65}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>',
+            '<rect x="1" y="1" width="%s" height="%s" rx="28" fill="#041019"/>' % (width - 2, height - 2),
+            '<g clip-path="url(#frame-clip)"><ellipse cx="%s" cy="40" rx="360" ry="260" fill="url(#aura)"/><ellipse cx="100" cy="%s" rx="320" ry="230" fill="url(#pink-aura)"/></g>' % (width - 100, height),
+            '<rect x="1.5" y="1.5" width="%s" height="%s" rx="27.5" fill="url(#glass)" stroke="url(#chrome)" stroke-width="1.5"/>' % (width - 3, height - 3),
+            '<rect x="13" y="13" width="%s" height="42" rx="16" fill="url(#titlebar)" stroke="#e3fbff" stroke-opacity=".16"/>' % (width - 26),
+            '<path d="M32 15H%s" stroke="#fff" stroke-opacity=".22"/>' % (width - 32),
+            '<g fill="none" stroke="#e3fbff" stroke-opacity=".6" stroke-width="1.2"><rect x="%s" y="25" width="17" height="17" rx="5"/><rect x="%s" y="25" width="17" height="17" rx="5"/><path d="M%s 33h7m13-4 7 8m-7 0 7-8"/></g>' % (width - 77, width - 51, width - 72),
+            '<ellipse cx="%s" cy="77" rx="43" ry="12" transform="rotate(-17 %s 77)" fill="none" stroke="#5fe3ff" stroke-opacity=".22"/>' % (width - 75, width - 75),
+            sparkle(width - (122 if mobile else 150), 75, 7, "#8cf4ff")]
 
 
 def short_date(value):
@@ -196,13 +207,13 @@ def contributions_svg(data):
     counts = [day["contributionCount"] for day in data["days"]]
     total, active, peak = sum(counts), sum(count > 0 for count in counts), max(counts)
     parts = frame("Darkreader404 · Contribution market", "365 days of actual GitHub contributions. Total %s. Weekly candles show daily first/last and low/high counts; the heatmap shows each actual day." % total, COLORS["mint"])
-    parts += [text(44, 38, "02 / CONTRIBUTION MARKET", 11, COLORS["mint"], 600, True, letter_spacing="1.8"),
-              text(44, 78, "Build a little. Compound it.", 28, "#edf6ff", 700),
-              text(1156, 38, "CODE IS THE LONG GAME", 10, "#93a8bf", 400, True, text_anchor="end"),
-              text(44, 140, total, 54, "#edf6ff", 700), text(44, 163, contributions_label(data) + " / 365 DAYS", 11, "#93a8bf", 500, True),
+    parts += [panel(28, 92, 368, 120), panel(412, 92, 752, 120), panel(28, 221, 1136, 85), text(44, 38, "CONTRIBUTION.exe / 02", 11, COLORS["mint"], 600, True, letter_spacing="1.8"),
+              text(44, 78, "Build a little. Compound it.", 28, "#effaff", 700, font_style="italic"),
+              text(1086, 38, "GROWTH / SIGNAL / REPEAT", 10, "#b3d2df", 400, True, text_anchor="end"),
+              text(44, 140, total, 54, "#effaff", 700), text(44, 163, contributions_label(data) + " / 365 DAYS", 11, "#b3d2df", 500, True),
               text(44, 190, "%s active days   /   %s peak in one day" % (active, peak), 12),
-              text(429, 107, "18 × 7-DAY CANDLES", 10, COLORS["mint"], 600, True),
-              text(1155, 107, "body: first / last day · wick: min / max", 10, "#93a8bf", text_anchor="end")]
+              text(429, 107, "CANDLE.view / 18 × 7 DAYS", 10, COLORS["mint"], 600, True),
+              text(1155, 107, "body: first / last day · wick: min / max", 10, "#b3d2df", text_anchor="end")]
     groups = [data["days"][-126:][i:i + 7] for i in range(0, 126, 7)]
     scale = 67 / max(1, max(day["contributionCount"] for group in groups for day in group))
     base = 189
@@ -216,12 +227,12 @@ def contributions_svg(data):
         # A minimum two-pixel doji keeps real zero candles visible, without a fake value.
         title = "%s to %s: first %s, last %s, low %s, high %s contributions/day" % (group[0]["date"], group[-1]["date"], first, last, low, high)
         parts.append('<g class="candle" style="animation-delay:%.3fs"><title>%s</title><path d="M%.1f %.1fV%.1f" stroke="%s" stroke-width="1.5"/><rect x="%.1f" y="%.1f" width="10" height="%.1f" rx="1" fill="%s"/></g>' % (index * .065, esc(title), x, base - high * scale, base - low * scale, color, x - 5, top - (1 if height == 0 else 0), max(2, height), color))
-    parts += [text(429, 207, short_date(groups[0][0]["date"]), 9, "#93a8bf", mono=True), text(1156, 207, short_date(groups[-1][-1]["date"]), 9, "#93a8bf", mono=True, text_anchor="end"),
-              '<path d="M44 221H1156" stroke="#ffffff" stroke-opacity=".1"/>', text(44, 247, "THE YEAR, IN SIGNALS", 10, COLORS["cyan"], 600, True),
+    parts += [text(429, 207, short_date(groups[0][0]["date"]), 9, "#b3d2df", mono=True), text(1156, 207, short_date(groups[-1][-1]["date"]), 9, "#b3d2df", mono=True, text_anchor="end"),
+              '<path d="M44 221H1156" stroke="#ffffff" stroke-opacity=".1"/>', text(44, 247, "YEAR.archive / 365", 10, COLORS["cyan"], 600, True),
               text(44, 269, short_date(data["start_date"]), 10, mono=True), text(44, 286, short_date(data["end_date"]), 10, mono=True)]
     first_date = dt.date.fromisoformat(data["start_date"])
     offset = (first_date.weekday() + 1) % 7
-    palette = ["#1b2a3c", "#2c665c", "#459a7a", "#6cc99e", COLORS["mint"]]
+    palette = ["#234351", "#3f8492", "#65aebd", "#98c9d3", COLORS["mint"]]
     for index, day in enumerate(data["days"]):
         count = day["contributionCount"]
         cell = offset + index
@@ -237,32 +248,32 @@ def activity_svg(data):
     counts = [day["contributionCount"] for day in days]
     total, peak, average = sum(counts), max(counts), sum(counts) / 7
     parts = frame("Darkreader404 · Activity vitals", "Actual contributions for %s through %s: %s total, %.1f daily average. The pulse trace is a decorative medical design motif, not a medical measurement." % (days[0]["date"], days[-1]["date"], total, average), COLORS["pink"])
-    parts += [text(44, 38, "03 / ACTIVITY VITALS", 11, COLORS["pink"], 600, True, letter_spacing="1.8"),
-              text(44, 78, "Every contribution has a pulse.", 28, "#edf6ff", 700),
+    parts += [panel(28, 120, 694, 178), panel(754, 92, 410, 206), text(44, 38, "PULSE.monitor / 03", 11, COLORS["pink"], 600, True, letter_spacing="1.8"),
+              text(44, 78, "Every contribution has a pulse.", 28, "#effaff", 700, font_style="italic"),
               text(44, 105, "%s — %s · 7-day contribution rhythm" % (short_date(days[0]["date"]), short_date(days[-1]["date"])), 12),
-              text(1156, 38, "MEDICAL FORM / DEVELOPER SIGNAL", 10, "#93a8bf", mono=True, text_anchor="end"),
+              text(1086, 38, "DEVELOPER SIGNAL / 7D", 10, "#b3d2df", mono=True, text_anchor="end"),
               '<path d="M736 92V291" stroke="#ffffff" stroke-opacity=".12"/>']
     scale = 90 / max(1, peak)
     base = 263
     avg_y = base - average * scale
     parts += ['<path d="M68 263H686M68 173H686" stroke="#ffffff" stroke-opacity=".08"/>',
-              '<path d="M68 %.1fH686" stroke="#ff739b" stroke-opacity=".4" stroke-dasharray="4 5"/>' % avg_y,
+              '<path d="M68 %.1fH686" stroke="#a5fff1" stroke-opacity=".4" stroke-dasharray="4 5"/>' % avg_y,
               text(686, 140, "DAILY AVG  %.1f" % average, 10, COLORS["pink"], 600, True, text_anchor="end")]
     for index, day in enumerate(days):
         count = day["contributionCount"]
         x, height = 104 + index * 89, count * scale
         title = "%s: %s contribution%s" % (day["date"], count, "" if count == 1 else "s")
-        parts.append('<g><title>%s</title><rect x="%s" y="%.1f" width="24" height="%.1f" rx="%s" fill="%s"/>%s</g>' % (esc(title), x - 12, base - max(3, height), max(3, height), 10 if height > 20 else 1.5, "url(#pink)" if count else "#394559", text(x, base - max(3, height) - 10, count, 13, "#edf6ff" if count else "#93a8bf", 600, text_anchor="middle")))
+        parts.append('<g><title>%s</title><rect x="%s" y="%.1f" width="24" height="%.1f" rx="%s" fill="%s"/>%s</g>' % (esc(title), x - 12, base - max(3, height), max(3, height), 10 if height > 20 else 1.5, "url(#pink)" if count else "#3b738b", text(x, base - max(3, height) - 10, count, 13, "#effaff" if count else "#b3d2df", 600, text_anchor="middle")))
         if count:
-            parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>' % (x, base - height))
+            parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#effaff" stroke="#a5fff1" stroke-width="2"/>' % (x, base - height))
         parts.append(text(x, 285, dt.date.fromisoformat(day["date"]).strftime("%a").upper(), 10, mono=True, text_anchor="middle"))
-    parts += [text(779, 113, contributions_label(data) + " / 7D", 10, COLORS["pink"], 600, True), text(779, 157, total, 42, "#edf6ff", 700),
+    parts += [text(779, 113, contributions_label(data) + " / 7D", 10, COLORS["pink"], 600, True), text(779, 157, total, 42, "#effaff", 700),
               text(900, 156, "contributions", 14), text(1156, 153, "%s / DAY PEAK" % peak, 10, COLORS["pink"], 600, True, text_anchor="end"),
-              '<path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>',
-              '<path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-width="2" fill="none"/>',
-              text(779, 241, "PULSE TRACE / DESIGN MOTIF", 9, "#93a8bf", mono=True),
+              '<path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#a5fff1" stroke-opacity=".2" stroke-width="2" fill="none"/>',
+              '<path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#a5fff1" stroke-width="2" fill="none"/>',
+              text(779, 241, "HEARTBEAT.skin / DECORATIVE", 9, "#b3d2df", mono=True),
               '<path d="M779 256H1156" stroke="#ffffff" stroke-opacity=".1"/>',
-              text(779, 279, short_date(days[-1]["date"]), 10, mono=True), text(1156, 279, "%s CONTRIBUTIONS" % counts[-1], 11, "#edf6ff", 600, True, text_anchor="end"),
+              text(779, 279, short_date(days[-1]["date"]), 10, mono=True), text(1156, 279, "%s CONTRIBUTIONS" % counts[-1], 11, "#effaff", 600, True, text_anchor="end"),
               footer(data), '</svg>']
     return "\n".join(parts) + "\n"
 
@@ -272,13 +283,13 @@ def contributions_mobile_svg(data):
     total, active, peak = sum(counts), sum(count > 0 for count in counts), max(counts)
     parts = frame("Darkreader404 · Contribution market", "365 days of actual GitHub contributions. Total %s. Eighteen complete seven-day candles show daily first/last and low/high counts; the heatmap shows each actual day." % total, COLORS["mint"], 600, 520)
     label_x = max(125, 28 + len(str(total)) * 30 + 18)
-    parts += [text(28, 34, "02 / CONTRIBUTION MARKET", 13, COLORS["mint"], 600, True, letter_spacing="1.2"),
-              text(28, 68, "Build a little. Compound it.", 24, "#edf6ff", 700),
-              text(28, 134, total, 50, "#edf6ff", 700),
-              text(label_x, 111, contributions_label(data), 13, "#93a8bf", 500, True),
-              text(label_x, 134, "ROLLING 365 DAYS", 13, "#93a8bf", 400, True),
+    parts += [panel(16, 82, 568, 90), panel(16, 178, 568, 154), panel(16, 344, 568, 122), text(28, 38, "CONTRIBUTION.exe / 02", 13, COLORS["mint"], 600, True, letter_spacing="1.2"),
+              text(28, 68, "Build a little. Compound it.", 26, "#effaff", 700, font_style="italic"),
+              text(28, 134, total, 50, "#effaff", 700),
+              text(label_x, 111, contributions_label(data), 13, "#b3d2df", 500, True),
+              text(label_x, 134, "ROLLING 365 DAYS", 13, "#b3d2df", 400, True),
               text(28, 158, "%s active days / %s peak in one day" % (active, peak), 13),
-              text(28, 193, "18 × 7-DAY CANDLES", 13, COLORS["mint"], 600, True),
+              text(28, 193, "CANDLE.view / 18 × 7 DAYS", 13, COLORS["mint"], 600, True),
               text(28, 214, "Body: first / last day · wick: min / max", 13)]
     groups = [data["days"][-126:][i:i + 7] for i in range(0, 126, 7)]
     scale = 60 / max(1, max(day["contributionCount"] for group in groups for day in group))
@@ -294,10 +305,10 @@ def contributions_mobile_svg(data):
         parts.append('<g class="candle" style="animation-delay:%.3fs"><title>%s</title><path d="M%.1f %.1fV%.1f" stroke="%s" stroke-width="1.5"/><rect x="%.1f" y="%.1f" width="8" height="%.1f" rx="1" fill="%s"/></g>' % (index * .065, esc(title), x, base - high * scale, base - low * scale, color, x - 4, top - (1 if height == 0 else 0), max(2, height), color))
     parts += [text(28, 316, short_date(groups[0][0]["date"]), 13, mono=True), text(572, 316, short_date(groups[-1][-1]["date"]), 13, mono=True, text_anchor="end"),
               '<path d="M28 335H572" stroke="#ffffff" stroke-opacity=".1"/>',
-              text(28, 358, "THE YEAR, IN SIGNALS", 13, COLORS["cyan"], 600, True)]
+              text(28, 358, "YEAR.archive / 365", 13, COLORS["cyan"], 600, True)]
     first_date = dt.date.fromisoformat(data["start_date"])
     offset = (first_date.weekday() + 1) % 7
-    palette = ["#1b2a3c", "#2c665c", "#459a7a", "#6cc99e", COLORS["mint"]]
+    palette = ["#234351", "#3f8492", "#65aebd", "#98c9d3", COLORS["mint"]]
     for index, day in enumerate(data["days"]):
         count = day["contributionCount"]
         cell = offset + index
@@ -314,31 +325,31 @@ def activity_mobile_svg(data):
     total, peak, average = sum(counts), max(counts), sum(counts) / 7
     parts = frame("Darkreader404 · Activity vitals", "Actual contributions for %s through %s: %s total, %.1f daily average. The pulse trace is a decorative medical design motif, not a medical measurement." % (days[0]["date"], days[-1]["date"], total, average), COLORS["pink"], 600, 520)
     unit_x = max(100, 28 + len(str(total)) * 27 + 18)
-    parts += [text(28, 34, "03 / ACTIVITY VITALS", 13, COLORS["pink"], 600, True, letter_spacing="1.2"),
-              text(28, 68, "Every contribution has a pulse.", 24, "#edf6ff", 700),
+    parts += [panel(16, 107, 568, 69), panel(16, 183, 568, 183), panel(16, 375, 568, 91), text(28, 38, "PULSE.monitor / 03", 13, COLORS["pink"], 600, True, letter_spacing="1.2"),
+              text(28, 68, "Every contribution has a pulse.", 26, "#effaff", 700, font_style="italic"),
               text(28, 94, "%s — %s" % (short_date(days[0]["date"]), short_date(days[-1]["date"])), 13),
               text(28, 123, contributions_label(data) + " / 7D", 13, COLORS["pink"], 600, True),
-              text(28, 166, total, 42, "#edf6ff", 700), text(unit_x, 160, "contributions", 15),
+              text(28, 166, total, 42, "#effaff", 700), text(unit_x, 160, "contributions", 15),
               text(572, 138, "%.1f DAILY AVG" % average, 13, COLORS["pink"], 600, True, text_anchor="end"),
-              text(572, 160, "%s / DAY PEAK" % peak, 13, "#93a8bf", 400, True, text_anchor="end"),
-              text(28, 197, "7-DAY CONTRIBUTION RHYTHM", 13, "#93a8bf", 400, True)]
+              text(572, 160, "%s / DAY PEAK" % peak, 13, "#b3d2df", 400, True, text_anchor="end"),
+              text(28, 197, "7-DAY CONTRIBUTION RHYTHM", 13, "#b3d2df", 400, True)]
     scale = 104 / max(1, peak)
     base = 332
     avg_y = base - average * scale
     parts += ['<path d="M28 332H572M28 228H572" stroke="#ffffff" stroke-opacity=".08"/>',
-              '<path d="M28 %.1fH572" stroke="#ff739b" stroke-opacity=".4" stroke-dasharray="4 5"/>' % avg_y]
+              '<path d="M28 %.1fH572" stroke="#a5fff1" stroke-opacity=".4" stroke-dasharray="4 5"/>' % avg_y]
     for index, day in enumerate(days):
         count = day["contributionCount"]
         x, height = 58 + index * 80, count * scale
         title = "%s: %s contribution%s" % (day["date"], count, "" if count == 1 else "s")
-        parts.append('<g><title>%s</title><rect x="%s" y="%.1f" width="22" height="%.1f" rx="%s" fill="%s"/>%s</g>' % (esc(title), x - 11, base - max(3, height), max(3, height), 10 if height > 20 else 1.5, "url(#pink)" if count else "#394559", text(x, base - max(3, height) - 10, count, 13, "#edf6ff" if count else "#93a8bf", 600, text_anchor="middle")))
+        parts.append('<g><title>%s</title><rect x="%s" y="%.1f" width="22" height="%.1f" rx="%s" fill="%s"/>%s</g>' % (esc(title), x - 11, base - max(3, height), max(3, height), 10 if height > 20 else 1.5, "url(#pink)" if count else "#3b738b", text(x, base - max(3, height) - 10, count, 13, "#effaff" if count else "#b3d2df", 600, text_anchor="middle")))
         if count:
-            parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>' % (x, base - height))
+            parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#effaff" stroke="#a5fff1" stroke-width="2"/>' % (x, base - height))
         parts.append(text(x, 354, dt.date.fromisoformat(day["date"]).strftime("%a").upper(), 13, mono=True, text_anchor="middle"))
     pulse = "M28 412H114L125 402L136 423L151 385L168 439L185 412H277L292 402L305 425L321 393L339 428L357 412H572"
     parts += ['<path d="M28 370H572" stroke="#ffffff" stroke-opacity=".1"/>',
-              '<path d="%s" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>' % pulse,
-              '<path class="pulse" d="%s" stroke="#ff739b" stroke-width="2" fill="none"/>' % pulse,
+              '<path d="%s" stroke="#a5fff1" stroke-opacity=".2" stroke-width="2" fill="none"/>' % pulse,
+              '<path class="pulse" d="%s" stroke="#a5fff1" stroke-width="2" fill="none"/>' % pulse,
               text(28, 457, "Pulse trace / decorative medical motif", 13), *mobile_footer(data), '</svg>']
     return "\n".join(parts) + "\n"
 

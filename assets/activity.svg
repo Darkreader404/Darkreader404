@@ -1,45 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
 <title id="title">Darkreader404 · Activity vitals</title><desc id="desc">Actual contributions for 2026-10-11 through 2026-10-17: 4 total, 0.6 daily average. The pulse trace is a decorative medical design motif, not a medical measurement.</desc>
-<defs><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#17263b" stop-opacity=".85"/><stop offset="1" stop-color="#111d2d" stop-opacity=".45"/></linearGradient><radialGradient id="aura"><stop stop-color="#ff739b" stop-opacity=".13"/><stop offset="1" stop-color="#ff739b" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#ff739b"/><stop offset="1" stop-color="#ff739b" stop-opacity=".25"/></linearGradient></defs>
-<defs><clipPath id="frame-clip"><rect x="1" y="1" width="1198" height="338" rx="28"/></clipPath></defs>
-<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.6}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>
-<rect x="1" y="1" width="1198" height="338" rx="28" fill="#080d18"/>
-<ellipse cx="1010" cy="35" rx="400" ry="250" fill="url(#aura)" clip-path="url(#frame-clip)"/>
-<rect x="1.5" y="1.5" width="1197" height="337" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>
-<path d="M44 1.5H1156" stroke="#ffffff" stroke-opacity=".2"/>
-<text x="44" y="38" fill="#ff739b" font-size="11" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" letter-spacing="1.8">03 / ACTIVITY VITALS</text>
-<text x="44" y="78" fill="#edf6ff" font-size="28" font-weight="700" font-family="Arial,Helvetica,sans-serif" >Every contribution has a pulse.</text>
-<text x="44" y="105" fill="#93a8bf" font-size="12" font-weight="400" font-family="Arial,Helvetica,sans-serif" >11 OCT 2026 — 17 OCT 2026 · 7-day contribution rhythm</text>
-<text x="1156" y="38" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">MEDICAL FORM / DEVELOPER SIGNAL</text>
+<defs><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2b5364" stop-opacity=".83"/><stop offset=".47" stop-color="#123446" stop-opacity=".78"/><stop offset="1" stop-color="#0c191f" stop-opacity=".96"/></linearGradient><linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3fbff" stop-opacity=".8"/><stop offset=".28" stop-color="#8cf4ff" stop-opacity=".22"/><stop offset=".57" stop-color="#5fe3ff" stop-opacity=".6"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".3"/></linearGradient><linearGradient id="titlebar" x2="0" y2="1"><stop stop-color="#e3fbff" stop-opacity=".18"/><stop offset=".48" stop-color="#e3fbff" stop-opacity=".05"/><stop offset=".51" stop-color="#5fe3ff" stop-opacity=".03"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".12"/></linearGradient><radialGradient id="aura"><stop stop-color="#a5fff1" stop-opacity=".23"/><stop offset="1" stop-color="#a5fff1" stop-opacity="0"/></radialGradient><radialGradient id="pink-aura"><stop stop-color="#a5fff1" stop-opacity=".16"/><stop offset="1" stop-color="#a5fff1" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#e4fefe"/><stop offset=".32" stop-color="#a5fff1"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".45"/></linearGradient><clipPath id="frame-clip"><rect x="1" y="1" width="1198" height="338" rx="28"/></clipPath></defs>
+<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.65}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>
+<rect x="1" y="1" width="1198" height="338" rx="28" fill="#041019"/>
+<g clip-path="url(#frame-clip)"><ellipse cx="1100" cy="40" rx="360" ry="260" fill="url(#aura)"/><ellipse cx="100" cy="340" rx="320" ry="230" fill="url(#pink-aura)"/></g>
+<rect x="1.5" y="1.5" width="1197" height="337" rx="27.5" fill="url(#glass)" stroke="url(#chrome)" stroke-width="1.5"/>
+<rect x="13" y="13" width="1174" height="42" rx="16" fill="url(#titlebar)" stroke="#e3fbff" stroke-opacity=".16"/>
+<path d="M32 15H1168" stroke="#fff" stroke-opacity=".22"/>
+<g fill="none" stroke="#e3fbff" stroke-opacity=".6" stroke-width="1.2"><rect x="1123" y="25" width="17" height="17" rx="5"/><rect x="1149" y="25" width="17" height="17" rx="5"/><path d="M1128 33h7m13-4 7 8m-7 0 7-8"/></g>
+<ellipse cx="1125" cy="77" rx="43" ry="12" transform="rotate(-17 1125 77)" fill="none" stroke="#5fe3ff" stroke-opacity=".22"/>
+<path d="M1050 68Q1050 75 1057 75Q1050 75 1050 82Q1050 75 1043 75Q1050 75 1050 68Z" fill="#8cf4ff"/>
+<rect x="28" y="120" width="694" height="178" rx="18" fill="#0c191f" fill-opacity=".55" stroke="#e3fbff" stroke-opacity=".13"/>
+<rect x="754" y="92" width="410" height="206" rx="18" fill="#0c191f" fill-opacity=".55" stroke="#e3fbff" stroke-opacity=".13"/>
+<text x="44" y="38" fill="#a5fff1" font-size="11" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" letter-spacing="1.8">PULSE.monitor / 03</text>
+<text x="44" y="78" fill="#effaff" font-size="28" font-weight="700" font-family="Arial,Helvetica,sans-serif" font-style="italic">Every contribution has a pulse.</text>
+<text x="44" y="105" fill="#b3d2df" font-size="12" font-weight="400" font-family="Arial,Helvetica,sans-serif" >11 OCT 2026 — 17 OCT 2026 · 7-day contribution rhythm</text>
+<text x="1086" y="38" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">DEVELOPER SIGNAL / 7D</text>
 <path d="M736 92V291" stroke="#ffffff" stroke-opacity=".12"/>
 <path d="M68 263H686M68 173H686" stroke="#ffffff" stroke-opacity=".08"/>
-<path d="M68 245.9H686" stroke="#ff739b" stroke-opacity=".4" stroke-dasharray="4 5"/>
-<text x="686" y="140" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">DAILY AVG  0.6</text>
-<g><title>2026-10-11: 0 contributions</title><rect x="92" y="260.0" width="24" height="3.0" rx="1.5" fill="#394559"/><text x="104" y="250" fill="#93a8bf" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
-<text x="104" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">SUN</text>
-<g><title>2026-10-12: 0 contributions</title><rect x="181" y="260.0" width="24" height="3.0" rx="1.5" fill="#394559"/><text x="193" y="250" fill="#93a8bf" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
-<text x="193" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">MON</text>
-<g><title>2026-10-13: 1 contribution</title><rect x="270" y="233.0" width="24" height="30.0" rx="10" fill="url(#pink)"/><text x="282" y="223.0" fill="#edf6ff" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">1</text></g>
-<circle cx="282" cy="233.0" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>
-<text x="282" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">TUE</text>
-<g><title>2026-10-14: 0 contributions</title><rect x="359" y="260.0" width="24" height="3.0" rx="1.5" fill="#394559"/><text x="371" y="250" fill="#93a8bf" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
-<text x="371" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">WED</text>
-<g><title>2026-10-15: 0 contributions</title><rect x="448" y="260.0" width="24" height="3.0" rx="1.5" fill="#394559"/><text x="460" y="250" fill="#93a8bf" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
-<text x="460" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">THU</text>
-<g><title>2026-10-16: 0 contributions</title><rect x="537" y="260.0" width="24" height="3.0" rx="1.5" fill="#394559"/><text x="549" y="250" fill="#93a8bf" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
-<text x="549" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">FRI</text>
-<g><title>2026-10-17: 3 contributions</title><rect x="626" y="173.0" width="24" height="90.0" rx="10" fill="url(#pink)"/><text x="638" y="163.0" fill="#edf6ff" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">3</text></g>
-<circle cx="638" cy="173.0" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>
-<text x="638" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">SAT</text>
-<text x="779" y="113" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" >PUBLIC GITHUB CONTRIBUTIONS / 7D</text>
-<text x="779" y="157" fill="#edf6ff" font-size="42" font-weight="700" font-family="Arial,Helvetica,sans-serif" >4</text>
-<text x="900" y="156" fill="#93a8bf" font-size="14" font-weight="400" font-family="Arial,Helvetica,sans-serif" >contributions</text>
-<text x="1156" y="153" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">3 / DAY PEAK</text>
-<path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>
-<path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-width="2" fill="none"/>
-<text x="779" y="241" fill="#93a8bf" font-size="9" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >PULSE TRACE / DESIGN MOTIF</text>
+<path d="M68 245.9H686" stroke="#a5fff1" stroke-opacity=".4" stroke-dasharray="4 5"/>
+<text x="686" y="140" fill="#a5fff1" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">DAILY AVG  0.6</text>
+<g><title>2026-10-11: 0 contributions</title><rect x="92" y="260.0" width="24" height="3.0" rx="1.5" fill="#3b738b"/><text x="104" y="250" fill="#b3d2df" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
+<text x="104" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">SUN</text>
+<g><title>2026-10-12: 0 contributions</title><rect x="181" y="260.0" width="24" height="3.0" rx="1.5" fill="#3b738b"/><text x="193" y="250" fill="#b3d2df" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
+<text x="193" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">MON</text>
+<g><title>2026-10-13: 1 contribution</title><rect x="270" y="233.0" width="24" height="30.0" rx="10" fill="url(#pink)"/><text x="282" y="223.0" fill="#effaff" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">1</text></g>
+<circle cx="282" cy="233.0" r="4" fill="#effaff" stroke="#a5fff1" stroke-width="2"/>
+<text x="282" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">TUE</text>
+<g><title>2026-10-14: 0 contributions</title><rect x="359" y="260.0" width="24" height="3.0" rx="1.5" fill="#3b738b"/><text x="371" y="250" fill="#b3d2df" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
+<text x="371" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">WED</text>
+<g><title>2026-10-15: 0 contributions</title><rect x="448" y="260.0" width="24" height="3.0" rx="1.5" fill="#3b738b"/><text x="460" y="250" fill="#b3d2df" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
+<text x="460" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">THU</text>
+<g><title>2026-10-16: 0 contributions</title><rect x="537" y="260.0" width="24" height="3.0" rx="1.5" fill="#3b738b"/><text x="549" y="250" fill="#b3d2df" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">0</text></g>
+<text x="549" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">FRI</text>
+<g><title>2026-10-17: 3 contributions</title><rect x="626" y="173.0" width="24" height="90.0" rx="10" fill="url(#pink)"/><text x="638" y="163.0" fill="#effaff" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">3</text></g>
+<circle cx="638" cy="173.0" r="4" fill="#effaff" stroke="#a5fff1" stroke-width="2"/>
+<text x="638" y="285" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">SAT</text>
+<text x="779" y="113" fill="#a5fff1" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" >PUBLIC GITHUB CONTRIBUTIONS / 7D</text>
+<text x="779" y="157" fill="#effaff" font-size="42" font-weight="700" font-family="Arial,Helvetica,sans-serif" >4</text>
+<text x="900" y="156" fill="#b3d2df" font-size="14" font-weight="400" font-family="Arial,Helvetica,sans-serif" >contributions</text>
+<text x="1156" y="153" fill="#a5fff1" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">3 / DAY PEAK</text>
+<path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#a5fff1" stroke-opacity=".2" stroke-width="2" fill="none"/>
+<path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#a5fff1" stroke-width="2" fill="none"/>
+<text x="779" y="241" fill="#b3d2df" font-size="9" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >HEARTBEAT.skin / DECORATIVE</text>
 <path d="M779 256H1156" stroke="#ffffff" stroke-opacity=".1"/>
-<text x="779" y="279" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >17 OCT 2026</text>
-<text x="1156" y="279" fill="#edf6ff" font-size="11" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">3 CONTRIBUTIONS</text>
-<text x="44" y="319" fill="#93a8bf" font-size="10" font-weight="400" font-family="Arial,Helvetica,sans-serif" >Public GitHub calendar · captured 17 Oct 2026 13:25 UTC · current day may still change</text>
+<text x="779" y="279" fill="#b3d2df" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" >17 OCT 2026</text>
+<text x="1156" y="279" fill="#effaff" font-size="11" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">3 CONTRIBUTIONS</text>
+<text x="44" y="319" fill="#b3d2df" font-size="10" font-weight="400" font-family="Arial,Helvetica,sans-serif" >Public GitHub calendar · captured 17 Oct 2026 13:25 UTC · current day may still change</text>
 </svg>

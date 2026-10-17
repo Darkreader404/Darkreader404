@@ -1,19 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="228" height="56" viewBox="0 0 228 56" role="img" aria-labelledby="title">
-  <title id="title">Build navigation</title>
-  <!-- Clipped geometry and glitch accents adapted from the supplied radio-button component. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="228" height="56" viewBox="0 0 228 56" role="img" aria-labelledby="title desc">
+  <title id="title">Build navigation</title><desc id="desc">A glossy Y2K cyber button with a silver bevel and a brief animated shine and glitch. Channel r1.</desc>
+  <!-- Angular silhouette and glitch timing adapted from the supplied radio-button component. -->
   <defs>
-    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#a3ffcf" stop-opacity=".15"/><stop offset="1" stop-color="#171a30"/></linearGradient>
-    <clipPath id="shape"><path d="M28 6H210l12 11-12 27h-18v6H20L6 36V24Z"/></clipPath>
+    <linearGradient id="jelly" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#64a2bc"/><stop offset=".22" stop-color="#35667b"/><stop offset=".49" stop-color="#203e4b"/><stop offset=".51" stop-color="#152931"/><stop offset="1" stop-color="#264858"/></linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".32" stop-color="#5fe3ff"/><stop offset=".53" stop-color="#326073"/><stop offset=".77" stop-color="#e3fbff"/><stop offset="1" stop-color="#8cf4ff"/></linearGradient>
+    <linearGradient id="shine"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <clipPath id="shape"><path d="M27 6H207L221 18 209 43H192V50H19L6 36V24Z"/></clipPath>
   </defs>
   <style>
-    .glitch{opacity:0;animation:glitch 5s steps(1,end) infinite}
-    @keyframes glitch{0%,93%,100%{opacity:0;transform:translateX(0)}94%{opacity:.75;transform:translateX(-3px)}95%{opacity:.3;transform:translateX(3px)}96%{opacity:0}97%{opacity:.5;transform:translateX(-2px)}}
-    @media(prefers-reduced-motion:reduce){.glitch{animation:none}}
+    .shine{animation:shine 6s ease-in-out infinite;transform:translateX(-260px)}
+    .glitch{opacity:0;animation:glitch 6s steps(1,end) infinite}
+    @keyframes shine{0%,55%{transform:translateX(-260px)}70%,100%{transform:translateX(260px)}}
+    @keyframes glitch{0%,78%,84%,100%{opacity:0;transform:translateX(0)}79%{opacity:.65;transform:translateX(-3px)}80%{opacity:.4;transform:translateX(3px)}82%{opacity:.5;transform:translateX(-2px)}}
+    @media(prefers-reduced-motion:reduce){.shine,.glitch{animation:none;opacity:0}}
   </style>
-  <path d="M32 10H214l12 11-12 27h-18v6H24L10 40V28Z" fill="#080d18"/>
-  <path d="M28 6H210l12 11-12 27h-18v6H20L6 36V24Z" fill="url(#glass)" stroke="#a3ffcf" stroke-opacity=".6"/>
-  <path d="M28 6h73M6 24v12l14 14h24M178 50h14v-6h18" fill="none" stroke="#a3ffcf"/>
-  <g clip-path="url(#shape)" class="glitch"><path d="M6 21H222v3H6M6 38H222v2H6" fill="#a3ffcf"/><text x="114" y="35" text-anchor="middle" fill="#67e8f9" font-family="'Courier New',monospace" font-size="14" letter-spacing="4">_BUILD</text></g>
-  <text x="114" y="35" text-anchor="middle" fill="#a3ffcf" font-family="'Courier New',monospace" font-size="14" font-weight="700" letter-spacing="4">_BUILD</text>
-  <rect x="177" y="4" width="24" height="12" fill="#080d18"/><text x="189" y="13" text-anchor="middle" fill="#93a8bf" font-family="'Courier New',monospace" font-size="9">r1</text>
+  <path d="M31 10H211L225 22 213 47H196V54H23L10 40V28Z" fill="#041019"/>
+  <path d="M27 6H207L221 18 209 43H192V50H19L6 36V24Z" fill="url(#jelly)" stroke="url(#chrome)" stroke-width="1.5"/>
+  <path d="M29 9H205L215 18M9 26v9l12 12h44" fill="none" stroke="#fff" stroke-opacity=".4"/>
+  <path d="M11 28H216" stroke="#fff" stroke-opacity=".07"/>
+  <g clip-path="url(#shape)"><path class="shine" d="M-12 4h54L12 52H-42Z" fill="url(#shine)"/><g class="glitch" fill="#8cf4ff"><path d="M6 22H222v2H6M6 39H222v2H6"/><text x="123" y="35" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="900" font-style="italic" letter-spacing="2">BUILD</text></g></g>
+  <path d="m37 19 2.7 6.3L46 28l-6.3 2.7L37 37l-2.7-6.3L28 28l6.3-2.7Z" fill="#8cf4ff"/>
+  <text x="124" y="35" text-anchor="middle" fill="#e3fbff" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="900" font-style="italic" letter-spacing="2">BUILD</text>
+  <rect x="180" y="3" width="23" height="12" rx="4" fill="#041019" stroke="#e3fbff" stroke-opacity=".3"/>
+  <text x="191.5" y="11.5" text-anchor="middle" fill="#8cf4ff" font-family="'Courier New',monospace" font-size="8">r1</text>
+  <path d="M177 47h12v-7h17" fill="none" stroke="#8cf4ff" stroke-opacity=".6"/>
 </svg>

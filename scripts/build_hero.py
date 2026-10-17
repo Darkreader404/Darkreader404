@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Build the Y2K glass README hero artwork. Never reads or modifies the avatar."""
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+ROOT = Path(__file__).resolve().parent.parent
+DEFS = '''<defs>
+  <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#35677d" stop-opacity=".83"/><stop offset=".42" stop-color="#123446" stop-opacity=".92"/><stop offset="1" stop-color="#0d1a20"/></linearGradient>
+  <linearGradient id="chrome" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset=".32" stop-color="#e3fbff"/><stop offset=".46" stop-color="#80b3c9"/><stop offset=".49" stop-color="#63a1bc"/><stop offset=".53" stop-color="#f7ffff"/><stop offset=".72" stop-color="#e3fbff"/><stop offset="1" stop-color="#5fe3ff"/></linearGradient>
+  <linearGradient id="edge" x2="1" y2="1"><stop stop-color="#f1fdff" stop-opacity=".8"/><stop offset=".25" stop-color="#5fe3ff" stop-opacity=".4"/><stop offset=".6" stop-color="#8cf4ff" stop-opacity=".12"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".65"/></linearGradient>
+  <linearGradient id="jelly" x2="0" y2="1"><stop stop-color="#e3fbff" stop-opacity=".25"/><stop offset=".48" stop-color="#5fe3ff" stop-opacity=".08"/><stop offset=".52" stop-color="#0d222b" stop-opacity=".5"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".16"/></linearGradient>
+  <radialGradient id="aura"><stop stop-color="#68b6d7" stop-opacity=".45"/><stop offset="1" stop-color="#68b6d7" stop-opacity="0"/></radialGradient>
+  <radialGradient id="blue"><stop stop-color="#8cf4ff" stop-opacity=".25"/><stop offset="1" stop-color="#8cf4ff" stop-opacity="0"/></radialGradient>
+  <radialGradient id="orb" cx=".35" cy=".25" r=".75"><stop stop-color="#b1d0dd" stop-opacity=".8"/><stop offset=".24" stop-color="#336378"/><stop offset=".48" stop-color="#112026"/><stop offset=".77" stop-color="#0b181e"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".7"/></radialGradient>
+  <linearGradient id="orbit"><stop stop-color="#8cf4ff" stop-opacity=".15"/><stop offset=".22" stop-color="#fff" stop-opacity=".85"/><stop offset=".47" stop-color="#5fe3ff" stop-opacity=".2"/><stop offset=".75" stop-color="#a5fff1"/><stop offset="1" stop-color="#8cf4ff" stop-opacity=".3"/></linearGradient>
+  <path id="star" d="M0-18Q2-2 18 0Q2 2 0 18Q-2 2-18 0Q-2-2 0-18Z"/>
+  <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#c5edfe" stroke-opacity=".035"/></pattern>
+</defs>
+<style>
+  .sans{font-family:Arial,Helvetica,sans-serif}.mono{font-family:'Courier New',monospace}.display{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;letter-spacing:-4px}
+  .float{animation:drift 9s ease-in-out infinite}.blink{animation:blink 4s ease-in-out infinite}
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes blink{0%,100%{opacity:.45}50%{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.float,.blink{animation:none}}
+</style>'''
+
+
+def frame(width, height):
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
+<title id="title">Geo Armstrong / Darkreader404 — Y2K cyan glass personal system</title>
+<desc id="desc">Chrome type, icy cyan glass windows, an iridescent orbital 404, and cyber terminal motifs. Geo Armstrong, he/him. Code, care, market signals. The profile photo is unchanged.</desc>
+{DEFS}
+<defs><clipPath id="bounds"><rect x="1" y="1" width="{width-2}" height="{height-2}" rx="26"/></clipPath></defs>
+<rect x="1" y="1" width="{width-2}" height="{height-2}" rx="26" fill="#041019"/>
+<g clip-path="url(#bounds)">
+<ellipse cx="{width*.75}" cy="{height*.3}" rx="{width*.4}" ry="{height*.8}" fill="url(#aura)"/>
+<ellipse cx="{width*.05}" cy="{height*.9}" rx="{width*.4}" ry="{height*.6}" fill="url(#blue)"/>
+<rect x="12" y="12" width="{width-24}" height="{height-24}" rx="20" fill="url(#glass)" stroke="url(#edge)"/>
+<rect x="12" y="12" width="{width-24}" height="{height-24}" rx="20" fill="url(#grid)"/>
+<path d="M14 51H{width-14}" stroke="#e3fbff" stroke-opacity=".16"/>
+<path d="M14 16H{width-14}V51H14Z" fill="url(#jelly)"/>
+<use href="#star" transform="translate(35 33) scale(.42)" fill="#8cf4ff"/>
+<text x="53" y="37" class="mono" font-size="11" letter-spacing="1.1" fill="#e3fbff">darkreader404 / personal.system</text>
+<g fill="url(#jelly)" stroke="#e3fbff" stroke-opacity=".4"><rect x="{width-97}" y="23" width="17" height="17" rx="5"/><rect x="{width-73}" y="23" width="17" height="17" rx="5"/><rect x="{width-49}" y="23" width="17" height="17" rx="5"/></g>
+<g stroke="#e3fbff" fill="none" stroke-width="1"><path d="M{width-92} 35h7"/><rect x="{width-68}" y="28" width="7" height="7" rx="1"/><path d="m{width-44} 28 7 7m0-7-7 7"/></g>'''
+
+
+def sphere(x, y, scale=1):
+    return f'''<g transform="translate({x} {y}) scale({scale})"><g class="float">
+<circle r="132" fill="url(#orb)" stroke="url(#edge)" stroke-width="1.5"/>
+<circle r="121" fill="none" stroke="#e3fbff" stroke-opacity=".09"/>
+<ellipse rx="182" ry="52" transform="rotate(-26)" fill="none" stroke="url(#orbit)" stroke-width="2"/>
+<ellipse rx="157" ry="86" transform="rotate(43)" fill="none" stroke="#8cf4ff" stroke-opacity=".16"/>
+<ellipse rx="74" ry="132" fill="none" stroke="#bceafd" stroke-opacity=".16"/>
+<path d="M-130 0H130M-113-64H113M-113 64H113" stroke="#5fe3ff" stroke-opacity=".1"/>
+<text x="-5" y="29" text-anchor="middle" class="display" font-size="100" fill="#000" fill-opacity=".3">404</text>
+<text x="-7" y="25" text-anchor="middle" class="display" font-size="100" fill="url(#chrome)" stroke="#e3fbff" stroke-opacity=".3" stroke-width=".5">404</text>
+<use href="#star" transform="translate(-148 -45) scale(1.2)" fill="url(#chrome)"/>
+<use href="#star" transform="translate(152 54) scale(.7)" fill="#a5fff1"/>
+<circle cx="-159" cy="42" r="4" fill="#8cf4ff"/>
+<circle cx="104" cy="-124" r="3" fill="#bdfff7" class="blink"/>
+</g></g>'''
+
+
+def desktop():
+    return frame(1200, 470) + '''
+<path d="M15 90 590 14h101L15 145Z" fill="#fff" fill-opacity=".025"/>
+<text x="52" y="95" class="mono" font-size="11" letter-spacing="2.5" fill="#a5fff1">CODE · CARE · MARKET SIGNALS</text>
+<text x="48" y="171" class="display" font-size="80" fill="url(#chrome)">Geo</text>
+<text x="48" y="252" class="display" font-size="85" fill="url(#chrome)">Armstrong<tspan fill="#8cf4ff">.</tspan></text>
+<text x="54" y="285" class="mono" font-size="16" fill="#b3d2df">@Darkreader404 <tspan fill="#5398b5">/</tspan> he/him</text>
+<text x="54" y="328" class="sans" font-size="21" fill="#e3fbff">Human ideas. Machine dreams.</text>
+<text x="54" y="356" class="sans" font-size="15" fill="#a9cbda">Hardware, accessible AI &amp; a little curiosity.</text>
+<g transform="translate(54 384)">
+  <rect width="154" height="35" rx="17.5" fill="url(#jelly)" stroke="#8cf4ff" stroke-opacity=".4"/>
+  <text x="77" y="22" class="mono" text-anchor="middle" font-size="11" letter-spacing=".5" fill="#8cf4ff">DRONEX.exe</text>
+  <rect x="165" width="154" height="35" rx="17.5" fill="url(#jelly)" stroke="#a5fff1" stroke-opacity=".4"/>
+  <text x="242" y="22" class="mono" text-anchor="middle" font-size="11" letter-spacing=".5" fill="#a5fff1">SCRIPT.ai</text>
+  <use href="#star" transform="translate(367 18) scale(.55)" fill="#5fe3ff"/>
+  <text x="388" y="22" class="mono" font-size="10" letter-spacing="1.3" fill="#5fe3ff">STAY CURIOUS</text>
+</g>
+''' + sphere(917, 220) + '''
+<g transform="translate(748 329)">
+  <rect width="354" height="91" rx="13" fill="#0d1f27" fill-opacity=".84" stroke="url(#edge)"/>
+  <rect x="1" y="1" width="352" height="25" rx="12" fill="url(#jelly)"/>
+  <text x="15" y="17" class="mono" font-size="9" letter-spacing="1.2" fill="#b1d0de">terminal / profile.readme</text>
+  <circle cx="332" cy="13" r="3" fill="#bdfff7" class="blink"/>
+  <text x="16" y="48" class="mono" font-size="12" fill="#bdfff7">&gt; hello, world_</text>
+  <text x="16" y="70" class="mono" font-size="11" fill="#b3d2df">&gt; create / explore / repeat</text>
+</g>
+<text x="1148" y="446" text-anchor="end" class="mono" font-size="9" letter-spacing="2" fill="#66a3be">Y2K.GLASS // PERSONAL INTERFACE</text>
+</g><rect x="1" y="1" width="1198" height="468" rx="26" fill="none" stroke="url(#edge)"/></svg>\n'''
+
+
+def mobile():
+    return frame(600, 650) + sphere(456, 135, .52) + '''
+<text x="32" y="91" class="mono" font-size="12" letter-spacing="2" fill="#a5fff1">CODE · CARE · MARKET SIGNALS</text>
+<text x="28" y="164" class="display" font-size="77" fill="url(#chrome)">Geo</text>
+<text x="28" y="241" class="display" font-size="75" fill="url(#chrome)">Armstrong<tspan fill="#8cf4ff">.</tspan></text>
+<text x="32" y="277" class="mono" font-size="18" fill="#b3d2df">@Darkreader404 / he/him</text>
+<text x="32" y="324" class="sans" font-size="25" fill="#e3fbff">Human ideas.</text>
+<text x="32" y="357" class="sans" font-size="25" fill="#e3fbff">Machine dreams.</text>
+<text x="32" y="395" class="sans" font-size="16" fill="#a9cbda">Hardware, accessible AI</text>
+<text x="32" y="419" class="sans" font-size="16" fill="#a9cbda">&amp; a little curiosity.</text>
+<g transform="translate(32 451)">
+  <rect width="536" height="115" rx="16" fill="#0d1f27" fill-opacity=".84" stroke="url(#edge)"/>
+  <rect x="1" y="1" width="534" height="30" rx="15" fill="url(#jelly)"/>
+  <text x="16" y="20" class="mono" font-size="12" letter-spacing="1" fill="#b1d0de">terminal / profile.readme</text>
+  <circle cx="512" cy="16" r="3" fill="#bdfff7" class="blink"/>
+  <text x="18" y="63" class="mono" font-size="18" fill="#bdfff7">&gt; hello, world_</text>
+  <text x="18" y="92" class="mono" font-size="15" fill="#b3d2df">&gt; create / explore / repeat</text>
+</g>
+<rect x="32" y="588" width="163" height="32" rx="16" fill="url(#jelly)" stroke="#8cf4ff" stroke-opacity=".35"/>
+<text x="113" y="609" class="mono" text-anchor="middle" font-size="13" fill="#8cf4ff">DRONEX.exe</text>
+<rect x="207" y="588" width="163" height="32" rx="16" fill="url(#jelly)" stroke="#a5fff1" stroke-opacity=".35"/>
+<text x="288" y="609" class="mono" text-anchor="middle" font-size="13" fill="#a5fff1">SCRIPT.ai</text>
+<use href="#star" transform="translate(417 604) scale(.55)" fill="#5fe3ff"/>
+<text x="437" y="608" class="mono" font-size="10" letter-spacing="1.2" fill="#5fe3ff">STAY CURIOUS</text>
+</g><rect x="1" y="1" width="598" height="648" rx="26" fill="none" stroke="url(#edge)"/></svg>\n'''
+
+
+def main():
+    for filename, source in [('hero.svg', desktop()), ('hero-mobile.svg', mobile())]:
+        ET.fromstring(source)
+        (ROOT / 'assets' / filename).write_text(source, encoding='utf-8')
+    print('Built desktop and mobile Y2K hero artwork; profile photo untouched.')
+
+
+if __name__ == '__main__':
+    main()

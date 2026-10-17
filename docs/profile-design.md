@@ -1,6 +1,8 @@
-# Profile design notes
+# Y2K glass profile design notes
 
 The profile is built from Markdown links and self-contained SVG images. It needs no React build, JavaScript, npm packages, custom fonts, or external stats-card service. SVG gradients, translucent surfaces, borders, and glow simulate glass within GitHub's README renderer. The native GitHub sidebar, pinned repositories, and contribution calendar are controlled by GitHub; the themed panels appear inside the README.
+
+The current style uses a deep blue star-grid desktop, cyan glass windows, chrome italic typography, iridescent orbital graphics, jelly navigation tabs, and retro media-player details. The existing profile photo is deliberately unchanged; the redesign applies to the page and its assets.
 
 ## Supplied component adaptations
 
@@ -10,7 +12,7 @@ The profile is built from Markdown links and self-contained SVG images. It needs
 
 All animated assets have a visible static baseline and respect `prefers-reduced-motion`. The hero and telemetry panels have separate narrow-screen compositions selected using `<picture>`. Project cards wrap into a single column on narrow screens. README alt text and ordinary text links preserve the content if images are unavailable.
 
-The user's full hover/glitch component is adapted in `preview/index.html`, a standalone browser preview. Its native links use the original seven clip masks and two-second glitch keyframes, turning purple to lime on pointer hover or keyboard focus. This interaction runs in the HTML preview; SVGs embedded as README images cannot receive the same pointer interaction. The preview is local and has not been published as a website.
+The user's full hover/glitch component is adapted in `preview/index.html`, a standalone browser preview. Its native links use the original seven clip masks and two-second glitch keyframes, turning icy blue, cyan, and aqua to bright mint on pointer hover or keyboard focus. This interaction runs in the HTML preview; SVGs embedded as README images cannot receive the same pointer interaction. The preview is local and has not been published as a website.
 
 ## Content and data
 
@@ -34,4 +36,4 @@ python3 scripts/update_profile.py --from-json assets/profile-data.json --output-
 
 The script also supports optional authenticated GraphQL locally. Those counts may include private activity depending on token permissions and profile settings, so use `--public` to match the visitor-facing profile. No token is needed for the scheduled data fetch; the workflow uses its standard repository token only to save the generated files.
 
-Edit the static hero, project cards, buttons, and footer directly in `assets/`. Edit telemetry layout in `scripts/update_profile.py`, then rerender it. Publish the README **with all referenced assets**, the refresh script, and its workflow. GitHub may briefly cache older images.
+Edit the hero layout in `scripts/build_hero.py` and run `python3 scripts/build_hero.py`. Edit project cards, buttons, and footer directly in `assets/`. Edit telemetry layout in `scripts/update_profile.py`, then rerender it from the saved snapshot. Publish the README **with all referenced assets**, the refresh script, and its workflow. GitHub may briefly cache older images.

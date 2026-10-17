@@ -1,63 +1,74 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
-  <title id="title">Geo Armstrong / Darkreader404</title>
-  <desc id="desc">A neon glass profile interface with code, medical cross, heartbeat, and market candlestick motifs. He/him. Code, care, and market signals.</desc>
-  <defs>
-    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1b2b40" stop-opacity=".92"/><stop offset=".5" stop-color="#0e1729" stop-opacity=".88"/><stop offset="1" stop-color="#1b1834" stop-opacity=".92"/></linearGradient>
-    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b2e9ff" stop-opacity=".5"/><stop offset=".45" stop-color="#8396b4" stop-opacity=".1"/><stop offset="1" stop-color="#b08cff" stop-opacity=".4"/></linearGradient>
-    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7ffe3"/><stop offset="1" stop-color="#67e8f9"/></linearGradient>
-    <radialGradient id="cyan"><stop stop-color="#1e7492" stop-opacity=".48"/><stop offset="1" stop-color="#1e7492" stop-opacity="0"/></radialGradient>
-    <radialGradient id="purple"><stop stop-color="#7849af" stop-opacity=".38"/><stop offset="1" stop-color="#7849af" stop-opacity="0"/></radialGradient>
-    <radialGradient id="pink"><stop stop-color="#bd426a" stop-opacity=".22"/><stop offset="1" stop-color="#bd426a" stop-opacity="0"/></radialGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#a3cbe0" stroke-opacity=".045"/></pattern>
-    <clipPath id="bounds"><rect x="1" y="1" width="1198" height="468" rx="28"/></clipPath>
-    <filter id="glow" x="-50%" y="-70%" width="200%" height="240%"><feGaussianBlur stdDeviation="3"/></filter>
-  </defs>
-  <style>
-    .sans{font-family:Arial,Helvetica,sans-serif}.mono{font-family:'Courier New',monospace}
-    .beat{stroke-dasharray:800;stroke-dashoffset:0;animation:trace 6s ease-in-out infinite}
-    .status{animation:breathe 3s ease-in-out infinite}
-    @keyframes trace{0%,18%{stroke-dashoffset:800;opacity:.25}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.25}}
-    @keyframes breathe{0%,100%{opacity:.65}50%{opacity:1}}
-    @media(prefers-reduced-motion:reduce){.beat,.status{animation:none}}
-  </style>
-  <rect x="1" y="1" width="1198" height="468" rx="28" fill="#080d18"/>
-  <g clip-path="url(#bounds)">
-    <ellipse cx="1030" cy="140" rx="340" ry="330" fill="url(#cyan)"/><ellipse cx="690" cy="450" rx="500" ry="290" fill="url(#purple)"/><ellipse cx="60" cy="370" rx="340" ry="250" fill="url(#pink)"/>
-    <rect x="18" y="18" width="1164" height="434" rx="22" fill="url(#glass)" stroke="url(#edge)"/><rect x="18" y="18" width="1164" height="434" rx="22" fill="url(#grid)"/>
-    <path d="M44 67H1156" stroke="#d4e7ff" stroke-opacity=".1"/>
-    <circle cx="48" cy="44" r="4" fill="#ff739b"/><circle cx="64" cy="44" r="4" fill="#b08cff"/><circle cx="80" cy="44" r="4" fill="#a3ffcf"/>
-    <text x="104" y="49" class="mono" font-size="12" letter-spacing="2" fill="#9fb4ca">DARKREADER404 / PERSONAL INTERFACE</text>
-    <circle cx="1050" cy="44" r="3.5" fill="#a3ffcf" class="status"/><text x="1063" y="48" class="mono" font-size="11" letter-spacing="1.5" fill="#a3ffcf">HELLO, WORLD</text>
-    <text x="54" y="112" class="mono" font-size="12" letter-spacing="3" fill="#67e8f9">01 / IDENTITY</text>
-    <text x="50" y="187" class="sans" font-size="68" font-weight="700" letter-spacing="-2.7" fill="#edf6ff">Geo Armstrong<tspan fill="#a3ffcf">.</tspan></text>
-    <text x="54" y="224" class="mono" font-size="17" fill="#9fb4ca">@Darkreader404 <tspan fill="#526781"> / </tspan> he/him</text>
-    <text x="54" y="279" class="sans" font-size="25" fill="#d4dfed">Code. <tspan fill="#ff9fbb">Care.</tspan> <tspan fill="#bca6ff">Market signals.</tspan></text>
-    <text x="54" y="309" class="sans" font-size="17" fill="#93a8bf">Curiosity at the intersection of human &amp; machine.</text>
-    <g transform="translate(54 350)">
-      <rect width="167" height="58" rx="12" fill="#91fce4" fill-opacity=".045" stroke="#a3ffcf" stroke-opacity=".22"/><path d="m18 22-6 7 6 7m14-14 6 7-6 7m-7-18-4 22" fill="none" stroke="#a3ffcf" stroke-width="1.7"/>
-      <text x="51" y="25" class="mono" font-size="12" letter-spacing="1.2" fill="#a3ffcf">CYBER</text><text x="51" y="43" class="sans" font-size="12" fill="#93a8bf">Build &amp; explore</text>
-    </g>
-    <g transform="translate(233 350)">
-      <rect width="167" height="58" rx="12" fill="#ff739b" fill-opacity=".045" stroke="#ff739b" stroke-opacity=".22"/><path d="M22 17v24m-12-12h24" stroke="#ff9fbb" stroke-width="2"/>
-      <text x="49" y="25" class="mono" font-size="12" letter-spacing="1.2" fill="#ff9fbb">MEDICAL</text><text x="49" y="43" class="sans" font-size="12" fill="#93a8bf">Human-centered</text>
-    </g>
-    <g transform="translate(412 350)">
-      <rect width="176" height="58" rx="12" fill="#b08cff" fill-opacity=".045" stroke="#b08cff" stroke-opacity=".22"/><path d="M15 20v22m9-28v22m9-16v26" stroke="#bca6ff" stroke-width="1.5"/><path d="M15 27v8m9-14v8m9 2v9" stroke="#bca6ff" stroke-width="5"/>
-      <text x="49" y="25" class="mono" font-size="12" letter-spacing="1.2" fill="#bca6ff">MARKETS</text><text x="49" y="43" class="sans" font-size="12" fill="#93a8bf">Read the signal</text>
-    </g>
-    <!-- A glass instrument, combining medical telemetry and market geometry. -->
-    <g transform="translate(902 241)">
-      <circle r="145" fill="#0b1526" fill-opacity=".55" stroke="#a6d6ee" stroke-opacity=".13"/><circle r="126" fill="none" stroke="#a6d6ee" stroke-opacity=".08" stroke-dasharray="1 9" stroke-width="3"/><circle r="102" fill="none" stroke="#67e8f9" stroke-opacity=".2"/>
-      <path d="M-145 0h30M115 0h30M0-145v30M0 115v30" stroke="#67e8f9" stroke-opacity=".45"/>
-      <path d="M-87-116A145 145 0 0 1 87-116M-87 116A145 145 0 0 0 87 116" fill="none" stroke="#a3ffcf" stroke-opacity=".6" stroke-width="2"/>
-      <text x="0" y="27" class="sans" text-anchor="middle" font-size="112" font-weight="700" letter-spacing="-8" fill="#d9f5ff" fill-opacity=".07">404</text>
-      <path d="M-23-81h46v25h25v46H23v25h-46v-25h-25v-46h25z" fill="url(#mint)" fill-opacity=".12" stroke="#a3ffcf" stroke-opacity=".6"/><path d="M-23-81h46v25h25" fill="none" stroke="#d5ffec" stroke-opacity=".8"/>
-      <path d="M-171 42h79l17-12 18 27 21-75 24 117 21-57h27l16-16 16 16h108" fill="none" stroke="#67e8f9" stroke-width="8" opacity=".18" filter="url(#glow)"/>
-      <path d="M-171 42h79l17-12 18 27 21-75 24 117 21-57h27l16-16 16 16h108" fill="none" stroke="#67e8f9" stroke-width="2" opacity=".3"/>
-      <path class="beat" d="M-171 42h79l17-12 18 27 21-75 24 117 21-57h27l16-16 16 16h108" fill="none" stroke="#a3ffcf" stroke-width="2.2" stroke-linecap="round"/>
-      <text x="0" y="114" class="mono" text-anchor="middle" font-size="10" letter-spacing="3" fill="#93a8bf">HUMAN × MACHINE</text>
-    </g>
-    <text x="902" y="421" class="mono" text-anchor="middle" font-size="10" letter-spacing="2" fill="#7b93ad">CODE / CARE / CURIOSITY</text>
-  </g>
-  <rect x="1" y="1" width="1198" height="468" rx="28" fill="none" stroke="url(#edge)"/>
-</svg>
+<title id="title">Geo Armstrong / Darkreader404 — Y2K cyan glass personal system</title>
+<desc id="desc">Chrome type, icy cyan glass windows, an iridescent orbital 404, and cyber terminal motifs. Geo Armstrong, he/him. Code, care, market signals. The profile photo is unchanged.</desc>
+<defs>
+  <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#35677d" stop-opacity=".83"/><stop offset=".42" stop-color="#123446" stop-opacity=".92"/><stop offset="1" stop-color="#0d1a20"/></linearGradient>
+  <linearGradient id="chrome" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset=".32" stop-color="#e3fbff"/><stop offset=".46" stop-color="#80b3c9"/><stop offset=".49" stop-color="#63a1bc"/><stop offset=".53" stop-color="#f7ffff"/><stop offset=".72" stop-color="#e3fbff"/><stop offset="1" stop-color="#5fe3ff"/></linearGradient>
+  <linearGradient id="edge" x2="1" y2="1"><stop stop-color="#f1fdff" stop-opacity=".8"/><stop offset=".25" stop-color="#5fe3ff" stop-opacity=".4"/><stop offset=".6" stop-color="#8cf4ff" stop-opacity=".12"/><stop offset="1" stop-color="#a5fff1" stop-opacity=".65"/></linearGradient>
+  <linearGradient id="jelly" x2="0" y2="1"><stop stop-color="#e3fbff" stop-opacity=".25"/><stop offset=".48" stop-color="#5fe3ff" stop-opacity=".08"/><stop offset=".52" stop-color="#0d222b" stop-opacity=".5"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".16"/></linearGradient>
+  <radialGradient id="aura"><stop stop-color="#68b6d7" stop-opacity=".45"/><stop offset="1" stop-color="#68b6d7" stop-opacity="0"/></radialGradient>
+  <radialGradient id="blue"><stop stop-color="#8cf4ff" stop-opacity=".25"/><stop offset="1" stop-color="#8cf4ff" stop-opacity="0"/></radialGradient>
+  <radialGradient id="orb" cx=".35" cy=".25" r=".75"><stop stop-color="#b1d0dd" stop-opacity=".8"/><stop offset=".24" stop-color="#336378"/><stop offset=".48" stop-color="#112026"/><stop offset=".77" stop-color="#0b181e"/><stop offset="1" stop-color="#5fe3ff" stop-opacity=".7"/></radialGradient>
+  <linearGradient id="orbit"><stop stop-color="#8cf4ff" stop-opacity=".15"/><stop offset=".22" stop-color="#fff" stop-opacity=".85"/><stop offset=".47" stop-color="#5fe3ff" stop-opacity=".2"/><stop offset=".75" stop-color="#a5fff1"/><stop offset="1" stop-color="#8cf4ff" stop-opacity=".3"/></linearGradient>
+  <path id="star" d="M0-18Q2-2 18 0Q2 2 0 18Q-2 2-18 0Q-2-2 0-18Z"/>
+  <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#c5edfe" stroke-opacity=".035"/></pattern>
+</defs>
+<style>
+  .sans{font-family:Arial,Helvetica,sans-serif}.mono{font-family:'Courier New',monospace}.display{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;letter-spacing:-4px}
+  .float{animation:drift 9s ease-in-out infinite}.blink{animation:blink 4s ease-in-out infinite}
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes blink{0%,100%{opacity:.45}50%{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.float,.blink{animation:none}}
+</style>
+<defs><clipPath id="bounds"><rect x="1" y="1" width="1198" height="468" rx="26"/></clipPath></defs>
+<rect x="1" y="1" width="1198" height="468" rx="26" fill="#041019"/>
+<g clip-path="url(#bounds)">
+<ellipse cx="900.0" cy="141.0" rx="480.0" ry="376.0" fill="url(#aura)"/>
+<ellipse cx="60.0" cy="423.0" rx="480.0" ry="282.0" fill="url(#blue)"/>
+<rect x="12" y="12" width="1176" height="446" rx="20" fill="url(#glass)" stroke="url(#edge)"/>
+<rect x="12" y="12" width="1176" height="446" rx="20" fill="url(#grid)"/>
+<path d="M14 51H1186" stroke="#e3fbff" stroke-opacity=".16"/>
+<path d="M14 16H1186V51H14Z" fill="url(#jelly)"/>
+<use href="#star" transform="translate(35 33) scale(.42)" fill="#8cf4ff"/>
+<text x="53" y="37" class="mono" font-size="11" letter-spacing="1.1" fill="#e3fbff">darkreader404 / personal.system</text>
+<g fill="url(#jelly)" stroke="#e3fbff" stroke-opacity=".4"><rect x="1103" y="23" width="17" height="17" rx="5"/><rect x="1127" y="23" width="17" height="17" rx="5"/><rect x="1151" y="23" width="17" height="17" rx="5"/></g>
+<g stroke="#e3fbff" fill="none" stroke-width="1"><path d="M1108 35h7"/><rect x="1132" y="28" width="7" height="7" rx="1"/><path d="m1156 28 7 7m0-7-7 7"/></g>
+<path d="M15 90 590 14h101L15 145Z" fill="#fff" fill-opacity=".025"/>
+<text x="52" y="95" class="mono" font-size="11" letter-spacing="2.5" fill="#a5fff1">CODE · CARE · MARKET SIGNALS</text>
+<text x="48" y="171" class="display" font-size="80" fill="url(#chrome)">Geo</text>
+<text x="48" y="252" class="display" font-size="85" fill="url(#chrome)">Armstrong<tspan fill="#8cf4ff">.</tspan></text>
+<text x="54" y="285" class="mono" font-size="16" fill="#b3d2df">@Darkreader404 <tspan fill="#5398b5">/</tspan> he/him</text>
+<text x="54" y="328" class="sans" font-size="21" fill="#e3fbff">Human ideas. Machine dreams.</text>
+<text x="54" y="356" class="sans" font-size="15" fill="#a9cbda">Hardware, accessible AI &amp; a little curiosity.</text>
+<g transform="translate(54 384)">
+  <rect width="154" height="35" rx="17.5" fill="url(#jelly)" stroke="#8cf4ff" stroke-opacity=".4"/>
+  <text x="77" y="22" class="mono" text-anchor="middle" font-size="11" letter-spacing=".5" fill="#8cf4ff">DRONEX.exe</text>
+  <rect x="165" width="154" height="35" rx="17.5" fill="url(#jelly)" stroke="#a5fff1" stroke-opacity=".4"/>
+  <text x="242" y="22" class="mono" text-anchor="middle" font-size="11" letter-spacing=".5" fill="#a5fff1">SCRIPT.ai</text>
+  <use href="#star" transform="translate(367 18) scale(.55)" fill="#5fe3ff"/>
+  <text x="388" y="22" class="mono" font-size="10" letter-spacing="1.3" fill="#5fe3ff">STAY CURIOUS</text>
+</g>
+<g transform="translate(917 220) scale(1)"><g class="float">
+<circle r="132" fill="url(#orb)" stroke="url(#edge)" stroke-width="1.5"/>
+<circle r="121" fill="none" stroke="#e3fbff" stroke-opacity=".09"/>
+<ellipse rx="182" ry="52" transform="rotate(-26)" fill="none" stroke="url(#orbit)" stroke-width="2"/>
+<ellipse rx="157" ry="86" transform="rotate(43)" fill="none" stroke="#8cf4ff" stroke-opacity=".16"/>
+<ellipse rx="74" ry="132" fill="none" stroke="#bceafd" stroke-opacity=".16"/>
+<path d="M-130 0H130M-113-64H113M-113 64H113" stroke="#5fe3ff" stroke-opacity=".1"/>
+<text x="-5" y="29" text-anchor="middle" class="display" font-size="100" fill="#000" fill-opacity=".3">404</text>
+<text x="-7" y="25" text-anchor="middle" class="display" font-size="100" fill="url(#chrome)" stroke="#e3fbff" stroke-opacity=".3" stroke-width=".5">404</text>
+<use href="#star" transform="translate(-148 -45) scale(1.2)" fill="url(#chrome)"/>
+<use href="#star" transform="translate(152 54) scale(.7)" fill="#a5fff1"/>
+<circle cx="-159" cy="42" r="4" fill="#8cf4ff"/>
+<circle cx="104" cy="-124" r="3" fill="#bdfff7" class="blink"/>
+</g></g>
+<g transform="translate(748 329)">
+  <rect width="354" height="91" rx="13" fill="#0d1f27" fill-opacity=".84" stroke="url(#edge)"/>
+  <rect x="1" y="1" width="352" height="25" rx="12" fill="url(#jelly)"/>
+  <text x="15" y="17" class="mono" font-size="9" letter-spacing="1.2" fill="#b1d0de">terminal / profile.readme</text>
+  <circle cx="332" cy="13" r="3" fill="#bdfff7" class="blink"/>
+  <text x="16" y="48" class="mono" font-size="12" fill="#bdfff7">&gt; hello, world_</text>
+  <text x="16" y="70" class="mono" font-size="11" fill="#b3d2df">&gt; create / explore / repeat</text>
+</g>
+<text x="1148" y="446" text-anchor="end" class="mono" font-size="9" letter-spacing="2" fill="#66a3be">Y2K.GLASS // PERSONAL INTERFACE</text>
+</g><rect x="1" y="1" width="1198" height="468" rx="26" fill="none" stroke="url(#edge)"/></svg>

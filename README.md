@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/hero-mobile.svg" />
-    <img src="./assets/hero.svg" width="100%" alt="Geo Armstrong · Darkreader404 · he/him. Code, care, and market signals in a neon glass interface." />
+    <img src="./assets/hero.svg" width="100%" alt="Geo Armstrong · Darkreader404 · he/him. Y2K chrome and cyan glass interface for code, care, and market signals." />
   </picture>
 </p>
 
@@ -46,5 +46,5 @@ I’m **Geo Armstrong** — **@Darkreader404** · **he/him**. Exploring code, hu
 </p>
 
 <p align="center">
-  <img src="./assets/footer.svg" width="100%" alt="Follow the signal. Build with purpose. Darkreader404." />
+  <img src="./assets/footer.svg" width="100%" alt="Stay curious. Keep building. Darkreader404." />
 </p>

@@ -4,50 +4,106 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <meta name="description" content="Geo Armstrong — Darkreader404. An interactive neon glass profile, exploring code, care, and market signals." />
-  <title>Darkreader404 · Interactive profile</title>
+  <meta name="description" content="Geo Armstrong / Darkreader404. A Y2K glass desktop for code, care, and market signals." />
+  <title>Darkreader404 · Personal system</title>
   <style>
-    :root { color-scheme: dark; --bg: #070c15; --text: #e6edf6; --muted: #a2b2c8; --line: #b9d9ff24; --mint: #a3ffcf; --cyan: #67e8f9; }
+    :root {
+      color-scheme: dark;
+      --bg: #041019;
+      --text: #edfcff;
+      --muted: #a8cbda;
+      --soft: #72aac2;
+      --cyan: #8cf4ff;
+      --pink: #a5fff1;
+      --lavender: #5fe3ff;
+      --lime: #bdfff7;
+      --edge: #e3fbff42;
+      --glass: linear-gradient(145deg, #c8eefe15, #81b3c906 50%, #9de0fc12);
+      --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 26px; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
-    body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 4% 15%, #1c6c6b22, transparent 44%), radial-gradient(ellipse at 95% 30%, #6e36ae1c, transparent 48%), linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px); background-size: auto, auto, 56px 56px, 56px 56px; }
-    a { color: var(--cyan); text-underline-offset: 5px; }
-    a:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 30px; }
+    body { margin: 0; min-width: 280px; color: var(--text); background: var(--bg); font-family: var(--sans); line-height: 1.6; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none; background: radial-gradient(ellipse at 2% 11%, #4a9fc332, transparent 41%), radial-gradient(ellipse at 94% 31%, #29797925, transparent 35%), radial-gradient(ellipse at 45% 95%, #0e65761d, transparent 42%); }
+    body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .25; background-image: radial-gradient(#bce7f9 1px, transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(#000, transparent 78%); }
+    a { color: var(--cyan); text-underline-offset: 4px; }
+    a:focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; }
     img { display: block; max-width: 100%; height: auto; }
-    .skip { position: absolute; left: 24px; top: -100px; padding: 9px 16px; background: #17283b; z-index: 10; border-radius: 7px; }
-    .skip:focus { top: 16px; }
-    .topbar { border-bottom: 1px solid var(--line); background: #080e19a3; }
-    .topbar-inner { max-width: 1320px; margin: auto; padding: 17px 34px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.25px; color: var(--text); text-decoration: none; }
-    .brand-mark { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 9px; border: 1px solid #a3ffcf55; background: #a3ffcf0e; color: var(--mint); font: 700 14px ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .top-label { color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 2px; }
-    .top-label::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 10px #a3ffcf66; }
-    .layout { max-width: 1320px; margin: 34px auto 0; padding: 0 34px 38px; display: grid; grid-template-columns: 244px minmax(0, 1fr); gap: 36px; align-items: start; }
-    .profile { position: sticky; top: 28px; }
-    .avatar-shell { padding: 6px; border: 1px solid #a3ffcf40; border-radius: 50%; background: linear-gradient(145deg, #a3ffcf1c, #882eff12); box-shadow: 0 0 54px #67e8f908; }
-    .avatar { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
-    .profile h1 { margin: 23px 0 0; font-size: 25px; line-height: 1.25; letter-spacing: -.7px; }
-    .handle { margin: 4px 0 20px; color: var(--muted); font-size: 17px; }
-    .pronouns { font-size: 12px; color: #7f92ac; white-space: nowrap; }
-    .bio { margin: 0; color: #c7d2e2; font-size: 14px; line-height: 1.8; }
-    .profile-link { display: block; margin-top: 22px; padding: 8px 12px; text-align: center; border: 1px solid var(--line); border-radius: 8px; background: #15233480; font-size: 12px; font-weight: 600; color: var(--text); text-decoration: none; transition: background .2s, border-color .2s; }
-    .profile-link:hover { background: #1d3447; border-color: #a3ffcf66; }
-    .interests { margin: 23px 0 0; padding: 22px 0 0; list-style: none; border-top: 1px solid var(--line); font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 1.3px; }
-    .interests li { margin-bottom: 14px; display: flex; align-items: center; gap: 11px; color: var(--muted); }
-    .interest-icon { color: var(--mint); display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid #a3ffcf26; border-radius: 5px; font-size: 14px; }
-    .interest-icon.pink { color: #ff739b; border-color: #ff739b30; }
-    .interest-icon.purple { color: #b799ff; border-color: #b799ff30; }
+    ::selection { color: #0b1f27; background: var(--pink); }
+    .skip { position: fixed; top: -100px; left: 18px; z-index: 20; padding: 10px 18px; color: #112730; background: var(--lime); border-radius: 20px; }
+    .skip:focus { top: 18px; }
+    .desktop-bar { border-bottom: 1px solid #d5f2fe22; background: linear-gradient(180deg, #cbeffe0d, #44839e10); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .desktop-bar-inner { max-width: 1400px; margin: auto; padding: 14px 42px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 650; letter-spacing: -.2px; }
+    .brand-symbol { color: var(--cyan); font-size: 28px; line-height: 1; text-shadow: 0 0 20px #8cf4ff60; }
+    .brand small { color: var(--soft); font-weight: 400; margin-left: 4px; }
+    .system-stamp { display: flex; align-items: center; gap: 14px; font: 9px var(--mono); color: var(--muted); letter-spacing: 1.2px; }
+    .system-stamp span:last-child { padding: 4px 10px; border: 1px solid #e3fbff30; border-radius: 20px; background: #e3fbff09; color: var(--cyan); }
+    .desktop { max-width: 1400px; margin: 34px auto 0; padding: 0 42px 40px; display: grid; grid-template-columns: 267px minmax(0, 1fr); gap: 28px; align-items: start; }
+    .side { display: grid; gap: 20px; position: sticky; top: 24px; min-width: 0; }
+    .window { position: relative; border: 1px solid var(--edge); border-radius: 21px; background: var(--glass); box-shadow: inset 0 1px 0 #fff4, inset 0 -1px 0 #8dc2d81c, 0 16px 50px #0003; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .window-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 38px; padding: 10px 16px; border-radius: 20px 20px 0 0; border-bottom: 1px solid #e3fbff26; background: linear-gradient(180deg, #e3fbff15, #a0e1fd03); color: #b9d5e1; font: 9px var(--mono); letter-spacing: 1.2px; }
+    .window-title { display: inline-flex; align-items: center; gap: 8px; }
+    .window-title::before { content: "✦"; color: var(--pink); font-size: 12px; }
+    .window-controls { display: flex; gap: 5px; }
+    .window-controls i { display: block; width: 7px; height: 7px; border-radius: 50%; border: 1px solid #e3fbff60; background: linear-gradient(#e3fbff60, #82b4ca1a); box-shadow: 0 1px 2px #0004; }
+    .window-controls i:last-child { background: linear-gradient(#b5fdfdd0, #71c2c24a); border-color: #b5fdfd75; }
+    .id-body { padding: 19px 19px 21px; }
+    .avatar-frame { position: relative; padding: 5px; border-radius: 26px; border: 1px solid #e3fbff9c; background: linear-gradient(135deg, #8cf4ff6b, #effaff18 30%, #5fe3ff14 60%, #a5fff17a); box-shadow: inset 0 1px 0 #fff8, 0 0 34px #5fe3ff10; }
+    .avatar-frame::before { content: ""; position: absolute; inset: -8px; pointer-events: none; border-radius: 33px; border: 1px solid #5fe3ff24; }
+    .avatar { aspect-ratio: 1; width: 100%; object-fit: cover; border-radius: 20px; background: #0d1d24; }
+    .avatar-tag { position: absolute; bottom: 12px; left: 13px; display: flex; align-items: center; gap: 5px; padding: 4px 7px; background: #0e2027bc; border: 1px solid #e3fbff3d; border-radius: 6px; backdrop-filter: blur(12px); color: #dff5fe; font: 7px var(--mono); letter-spacing: 1px; }
+    .avatar-tag::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 7px var(--pink); }
+    .chrome { color: #e3fbff; background: linear-gradient(180deg, #fff 8%, #cde3ec 35%, #72aac2 49%, #e9fbfe 53%, #fff 67%, #a1c7d7 93%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 0 #13303d); }
+    h1 { margin: 23px 0 2px; font-size: 25px; font-style: italic; line-height: 1.15; letter-spacing: -1.05px; font-weight: 850; }
+    .handle { margin: 6px 0 19px; color: var(--lavender); font: 10px var(--mono); line-height: 1.6; }
+    .pronouns { color: var(--soft); padding-left: 5px; white-space: nowrap; }
+    .bio { margin: 0; color: #b3d2df; font-size: 12px; line-height: 1.85; }
+    .profile-link { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 21px; padding: 10px 12px; border: 1px solid #e3fbff65; border-radius: 30px; color: #e9f8fe; background: linear-gradient(180deg, #e2f6fe33, #95bfd113 50%, #488ca91c 51%, #9ec5d52a); box-shadow: inset 0 1px 0 #fff5, 0 3px 9px #0004; text-decoration: none; font-size: 10px; transition: border-color .2s, box-shadow .2s; }
+    .profile-link:hover { border-color: var(--cyan); box-shadow: inset 0 1px 0 #fff5, 0 0 20px #8cf4ff20; }
+    .profile-link span { color: var(--cyan); font-size: 15px; line-height: 1; }
+    .id-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 19px; padding-top: 14px; border-top: 1px solid #e3fbff24; color: var(--soft); font: 8px var(--mono); letter-spacing: 1px; }
+    .id-foot span:last-child { color: var(--cyan); }
+    .player { padding: 17px; border-radius: 18px; }
+    .player-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font: 8px var(--mono); letter-spacing: 1px; }
+    .player-top span:last-child { color: var(--pink); }
+    .player-track { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+    .disc { display: block; flex-shrink: 0; width: 45px; height: 45px; border-radius: 50%; background: conic-gradient(from 70deg, #fff4, #e3fbff, #79aec5, #8cf4ff, #fff, #5fe3ff, #a5fff1, #fff4); border: 1px solid #e3fbff8a; box-shadow: 0 0 20px #5fe3ff20; position: relative; }
+    .disc::before { content: ""; position: absolute; inset: 13px; border: 4px solid #203d4a; border-radius: 50%; background: #041019; box-shadow: 0 0 0 1px #fff5; }
+    .track-title { color: #daecf3; font-size: 12px; font-weight: 600; }
+    .track-artist { margin-top: 2px; color: var(--soft); font: 8px var(--mono); letter-spacing: .5px; }
+    .equalizer { display: flex; align-items: flex-end; height: 18px; gap: 3px; padding-top: 2px; margin-left: auto; }
+    .equalizer i { width: 3px; background: linear-gradient(var(--pink), var(--lavender)); border-radius: 3px; }
+    .equalizer i:nth-child(1) { height: 5px; }.equalizer i:nth-child(2) { height: 11px; }.equalizer i:nth-child(3) { height: 17px; }.equalizer i:nth-child(4) { height: 9px; }.equalizer i:nth-child(5) { height: 13px; }
+    .player-line { height: 3px; margin-top: 18px; border-radius: 3px; background: #5fe3ff22; position: relative; }
+    .player-line::before { content: ""; display: block; width: 61%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--lavender), var(--cyan)); }
+    .player-line::after { content: ""; position: absolute; left: 60%; top: -2px; width: 7px; height: 7px; background: #e3fbff; border-radius: 50%; box-shadow: 0 0 7px #8cf4ff80; }
+    .interests { padding: 0 5px; }
+    .interests-label { color: var(--soft); font: 8px var(--mono); letter-spacing: 1.3px; margin: 0 0 14px; }
+    .interests ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 11px; }
+    .interests li { display: flex; align-items: center; gap: 10px; color: #a5c9d9; font-size: 11px; }
+    .interest-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; border: 1px solid #e3fbff30; border-radius: 8px; background: #e3fbff0a; color: var(--cyan); font-size: 13px; }
+    .interest-icon.pink { color: var(--pink); }.interest-icon.lavender { color: var(--lavender); }
     main { min-width: 0; }
-    .hero { margin: 0; }
-    .hero img { width: 100%; border-radius: 20px; }
-    .navigation { display: flex; gap: 15px; justify-content: center; margin: 25px 8px 29px; }
-    /* Adapted from the supplied styled-components Radio: real links retain native navigation. */
+    .location { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 3px 12px; color: var(--soft); font: 8px var(--mono); letter-spacing: 1.2px; }
+    .location span:first-child { color: #c4dce6; }
+    .location span:last-child { display: flex; gap: 8px; align-items: center; }
+    .location span:last-child::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }
+    .hero { overflow: hidden; }
+    .hero .window-bar { padding: 9px 18px; }
+    .hero .window-title::before { content: "◈"; color: var(--cyan); }
+    .hero img { width: 100%; }
+    .navigation-shell { margin: 18px 0 0; padding: 14px 16px 16px; border-radius: 17px; display: flex; gap: 20px; align-items: center; }
+    .nav-caption { flex-shrink: 0; color: var(--soft); font: 8px/1.7 var(--mono); letter-spacing: 1px; }
+    .nav-caption span { color: var(--pink); }
+    .navigation { flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0; }
+    /* Supplied Radio masks/keyframes, adapted to real anchors and glossy chrome tabs. */
     .btn {
-      --primary: #882eff;
-      --shadow-primary: #000000;
-      --color: #080711;
-      --font-size: 12px;
+      --primary: #5fe3ff;
+      --shadow-primary: #0e2028;
+      --color: #0e242d;
+      --font-size: 10px;
       --shadow-primary-hue: 180;
       --shadow-secondary-hue: 60;
       --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
@@ -61,19 +117,21 @@
       --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
       --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
       --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-      position: relative; isolation: isolate; z-index: 0; display: block; flex: 1; max-width: 228px; min-width: 0; height: 52px;
-      color: var(--color); text-decoration: none; text-transform: uppercase; font: 900 var(--font-size)/52px ui-monospace, SFMono-Regular, Consolas, monospace;
-      letter-spacing: 3px; text-align: center; transition: font-size .3s; -webkit-tap-highlight-color: transparent;
+      position: relative; isolation: isolate; z-index: 0; display: block; flex: 1; min-width: 0; height: 43px;
+      color: var(--color); text-decoration: none; text-transform: uppercase; font: 900 var(--font-size)/43px var(--mono); letter-spacing: 2px; text-align: center;
+      transition: font-size .3s, filter .2s; -webkit-tap-highlight-color: transparent; filter: drop-shadow(0 2px 2px #0005);
     }
-    .btn:hover, .btn:focus-visible { --primary: #95ff00; --font-size: 14px; }
-    .btn:focus-visible { outline: 2px solid #95ff00; outline-offset: 7px; }
+    .btn:nth-child(2) { --primary: #8cf4ff; }
+    .btn:nth-child(3) { --primary: #a5fff1; }
+    .btn:hover, .btn:focus-visible { --primary: #bdfff7; --font-size: 12px; filter: drop-shadow(0 0 8px #bdfff732); }
+    .btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; }
     .btn::before, .btn::after { content: ""; position: absolute; inset: 0; clip-path: var(--clip); z-index: -1; }
-    .btn::before { background: var(--shadow-primary); transform: translate(var(--border), 0); }
-    .btn::after { background: var(--primary); transition: background .2s; }
+    .btn::before { background: linear-gradient(135deg, #e3fbff, #5b9cb9 45%, #e3fbff); transform: translate(2px, 2px); }
+    .btn::after { background: linear-gradient(180deg, #fffc 0%, #fff4 9%, transparent 48%, #1e4f6429 50%, #fffa 100%), var(--primary); transition: background .2s; box-shadow: inset 0 1px 0 #fff; }
     .btn__glitch { position: absolute; inset: calc(var(--border) * -1); display: none; background: var(--shadow-primary); text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary); clip-path: var(--clip); animation: glitch 2s infinite; pointer-events: none; }
     .btn:hover .btn__glitch, .btn:focus-visible .btn__glitch { display: block; }
     .btn__glitch::before { content: ""; position: absolute; inset: var(--border); clip-path: var(--clip); background: var(--primary); z-index: -1; }
-    .number { position: absolute; top: 0; left: 81%; width: 25px; height: 10px; background: var(--shadow-primary); color: #b8a4d6; font: 700 7px/10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 1px; }
+    .number { position: absolute; top: 0; left: 80%; width: 22px; height: 9px; background: #19323d; color: #d9ecf4; font: 700 6px/9px var(--mono); letter-spacing: 1px; }
     @keyframes glitch {
       0% { clip-path: var(--clip-one); }
       2%, 8% { clip-path: var(--clip-two); transform: translate(calc(var(--shimmy-distance) * -1%), 0); }
@@ -91,93 +149,130 @@
       60% { clip-path: var(--clip-seven); transform: translate(0, 0); }
       31%, 61%, 100% { clip-path: var(--clip-four); }
     }
-    .intro { margin: 0 4px 30px; color: #b6c4d6; font-size: 14px; line-height: 1.8; }
-    .intro strong { color: #edf5ff; font-weight: 600; }
-    section { margin-top: 29px; }
-    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 4px 14px; }
-    h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.2px; }
-    .section-id { color: #778da9; font: 9px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 1.5px; }
-    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .project { display: block; border-radius: 19px; transition: transform .2s, filter .2s; }
-    .project:hover { transform: translateY(-3px); filter: brightness(1.08); }
-    .project img { width: 100%; }
-    .data-card { display: block; border-radius: 20px; }
-    .data-card img { width: 100%; border-radius: 20px; }
-    .footer { margin-top: 29px; }
+    .intro { display: flex; align-items: flex-start; gap: 13px; margin: 23px 5px 27px; color: #a3c8d8; font-size: 12px; line-height: 1.9; }
+    .intro-symbol { flex-shrink: 0; margin-top: -1px; color: var(--pink); font-size: 22px; line-height: 1.3; }
+    .intro p { margin: 0; }
+    .intro strong { color: #e0edf3; font-weight: 600; }
+    section { margin-top: 26px; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin: 0 3px 13px; }
+    .section-name { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .section-icon { display: grid; place-items: center; width: 24px; height: 21px; border-radius: 6px 6px 4px 4px; background: linear-gradient(180deg, #d1f0fe6b, #67a4bf2b); border: 1px solid #e3fbff5c; color: #d4e6ed; font: 11px var(--mono); box-shadow: inset 0 1px 0 #fff4; }
+    h2 { margin: 0; color: #d6e7ee; font-size: 14px; font-weight: 600; letter-spacing: -.25px; }
+    .section-id { color: var(--soft); font: 8px var(--mono); letter-spacing: 1px; white-space: nowrap; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .project { display: block; border-radius: 20px; text-decoration: none; transition: transform .2s, filter .2s; }
+    .project:hover { transform: translateY(-3px); filter: brightness(1.12) drop-shadow(0 6px 18px #5fe3ff18); }
+    .project img { width: 100%; border-radius: 20px; }
+    .data-card { display: block; border-radius: 22px; transition: filter .2s; }
+    .data-card:hover { filter: brightness(1.08); }
+    .data-card img { width: 100%; border-radius: 22px; }
+    .footer { margin-top: 28px; }
     .footer img { width: 100%; }
-    .preview-note { max-width: 790px; margin: 25px auto 0; color: #8194af; font-size: 11px; text-align: center; line-height: 1.7; }
-    .preview-note strong { color: #afbdd0; font-weight: 500; }
-    @media (min-width: 1500px) { .layout { margin-top: 45px; } }
-    @media (max-width: 1000px) { .layout { grid-template-columns: 205px minmax(0, 1fr); gap: 25px; padding-inline: 25px; } .topbar-inner { padding-inline: 25px; } .profile h1 { font-size: 22px; } .handle { font-size: 14px; } .navigation { gap: 10px; } .btn { --font-size: 11px; letter-spacing: 2px; } .btn:hover, .btn:focus-visible { --font-size: 13px; } }
-    @media (max-width: 760px) { .layout { display: block; max-width: 650px; margin-top: 24px; padding-inline: 20px; } .profile { position: static; display: grid; grid-template-columns: 104px minmax(0, 1fr); column-gap: 20px; align-items: center; margin-bottom: 26px; } .avatar-shell { grid-column: 1; grid-row: 1 / 4; padding: 4px; } .profile h1 { grid-column: 2; margin: 0; font-size: 24px; } .handle { grid-column: 2; margin: 4px 0 0; } .bio { grid-column: 1 / -1; margin-top: 20px; } .profile-link { grid-column: 1 / -1; margin-top: 17px; } .interests { display: flex; gap: 15px; grid-column: 1 / -1; padding-top: 17px; margin-top: 20px; flex-wrap: wrap; } .interests li { margin-bottom: 0; font-size: 9px; letter-spacing: .7px; } .interest-icon { width: 19px; height: 19px; } .topbar-inner { padding: 14px 20px; } .top-label { font-size: 8px; letter-spacing: 1px; } .navigation { margin-top: 23px; margin-bottom: 26px; } }
-    @media (max-width: 460px) { .layout { padding-inline: 15px; } .topbar-inner { padding-inline: 15px; } .top-label { display: none; } .profile { column-gap: 15px; grid-template-columns: 88px minmax(0, 1fr); } .profile h1 { font-size: 22px; } .handle { font-size: 13px; } .pronouns { font-size: 10px; } .interests { gap: 12px; } .interests li { gap: 5px; font-size: 8px; } .navigation { gap: 8px; margin-inline: 0; } .btn { --font-size: 10px; letter-spacing: 1px; height: 46px; line-height: 46px; } .btn:hover, .btn:focus-visible { --font-size: 12px; } .number { left: 76%; width: 20px; } .projects { grid-template-columns: 1fr; gap: 14px; } .section-id { font-size: 8px; letter-spacing: 1px; } .intro { font-size: 13px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } .btn:hover .btn__glitch, .btn:focus-visible .btn__glitch { display: none; } .project:hover { transform: none; } }
+    .preview-note { margin: 21px auto 0; max-width: 700px; color: #6da8c1; font-size: 10px; line-height: 1.8; text-align: center; }
+    .preview-note strong { color: #a8cad9; font-weight: 500; }
+    .desktop-footer { max-width: 1316px; margin: 8px auto 0; padding: 0 0 17px; display: flex; justify-content: space-between; gap: 15px; color: #4a8eab; font: 8px var(--mono); letter-spacing: 1px; }
+    .desktop-footer span:last-child { color: #80b3c9; }
+    @media (min-width: 1500px) { .desktop { margin-top: 45px; } }
+    @media (max-width: 1150px) {
+      .desktop { padding-inline: 28px; grid-template-columns: 237px minmax(0, 1fr); gap: 23px; }
+      .desktop-bar-inner { padding-inline: 28px; }
+      .desktop-footer { margin-inline: 28px; }
+      .id-body { padding: 17px; } h1 { font-size: 23px; }
+      .navigation-shell { gap: 13px; padding-inline: 13px; }.btn { letter-spacing: 1px; }
+      .nav-caption { font-size: 7px; }
+    }
+    @media (max-width: 850px) {
+      .desktop { display: block; max-width: 720px; padding-inline: 22px; margin-top: 25px; }
+      .desktop-bar-inner { padding-inline: 22px; }
+      .side { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+      .id-card { grid-column: 1 / -1; }
+      .id-body { display: grid; grid-template-columns: 145px minmax(0, 1fr); column-gap: 27px; padding: 21px; }
+      .avatar-frame { grid-column: 1; grid-row: 1 / 6; align-self: start; margin-top: 3px; }
+      h1 { grid-column: 2; margin: 0; font-size: 27px; }.handle { grid-column: 2; margin: 6px 0 10px; }.bio { grid-column: 2; font-size: 12px; }
+      .profile-link { grid-column: 2; margin-top: 13px; padding-block: 8px; max-width: 260px; }.id-foot { grid-column: 2; margin-top: 12px; padding-top: 10px; }
+      .player { align-self: start; }.interests { align-self: center; padding-left: 10px; }
+      .interests-label { margin-bottom: 10px; }.interests ul { gap: 9px; }.interests li { font-size: 10px; }
+      .location { font-size: 7px; }.desktop-footer { max-width: 676px; margin: 0 auto; padding-inline: 22px; }
+    }
+    @media (max-width: 520px) {
+      .desktop { padding-inline: 15px; margin-top: 20px; }.desktop-bar-inner { padding: 13px 17px; }.system-stamp { display: none; }.brand { font-size: 12px; }
+      .side { gap: 13px; margin-bottom: 24px; }.id-body { grid-template-columns: 107px minmax(0, 1fr); gap: 0 18px; padding: 18px; }
+      .avatar-frame { padding: 3px; border-radius: 19px; grid-row: 1 / 4; }.avatar-frame::before { inset: -5px; border-radius: 24px; }.avatar { border-radius: 15px; }.avatar-tag { bottom: 6px; left: 6px; padding: 3px 4px; font-size: 5px; letter-spacing: .5px; }
+      h1 { margin-top: 8px; font-size: 24px; }.handle { font-size: 9px; margin-bottom: 11px; }.pronouns { display: block; padding: 3px 0 0; }.bio { grid-column: 1 / -1; margin-top: 17px; font-size: 12px; }.profile-link { grid-column: 1 / -1; max-width: none; margin-top: 16px; }.id-foot { grid-column: 1 / -1; }
+      .window-bar { min-height: 35px; padding: 9px 14px; font-size: 8px; }.player { padding: 13px; }.player-top { font-size: 6px; letter-spacing: .5px; }.player-track { gap: 8px; margin-top: 12px; }.disc { width: 34px; height: 34px; }.disc::before { inset: 9px; border-width: 3px; }.track-title { font-size: 10px; }.track-artist { font-size: 6px; }.equalizer { display: none; }.player-line { margin-top: 13px; }
+      .interests { padding-left: 3px; }.interests-label { font-size: 7px; letter-spacing: .5px; }.interests ul { gap: 7px; }.interests li { gap: 6px; font-size: 9px; }.interest-icon { width: 20px; height: 20px; font-size: 11px; border-radius: 6px; }
+      .location { margin-inline: 2px; font-size: 6px; letter-spacing: .5px; }.location span:last-child { gap: 5px; }
+      .hero { border-radius: 18px; }.hero .window-bar { padding-inline: 13px; border-radius: 17px 17px 0 0; }.hero .window-title { font-size: 7px; letter-spacing: .8px; }
+      .navigation-shell { display: block; padding: 11px 11px 14px; margin-top: 14px; }.nav-caption { margin-bottom: 9px; font-size: 6px; letter-spacing: 1.2px; }.nav-caption br { display: none; }.nav-caption span { margin-left: 5px; }.navigation { gap: 8px; }.btn { --font-size: 9px; height: 39px; line-height: 39px; letter-spacing: .8px; }.btn:hover, .btn:focus-visible { --font-size: 11px; }.number { left: 77%; width: 18px; height: 8px; font-size: 5px; line-height: 8px; }
+      .intro { margin: 19px 2px 25px; font-size: 11px; gap: 10px; }.intro-symbol { font-size: 20px; }
+      .projects { grid-template-columns: 1fr; gap: 14px; }.section-head { margin-inline: 2px; gap: 8px; }.section-id { font-size: 6px; letter-spacing: .6px; }.section-name { gap: 8px; }h2 { font-size: 13px; }.section-icon { width: 21px; height: 19px; font-size: 10px; }
+      section { margin-top: 24px; }.preview-note { font-size: 9px; }.desktop-footer { padding-inline: 18px; font-size: 6px; letter-spacing: .5px; }
+    }
+    @media (max-width: 340px) { .id-body { grid-template-columns: 90px minmax(0, 1fr); column-gap: 15px; } h1 { font-size: 21px; }.handle { font-size: 8px; }.player-top { letter-spacing: 0; }.track-title { font-size: 9px; }.track-artist { font-size: 5px; }.interests li { font-size: 8px; }.location span:last-child { display: none; }.btn { --font-size: 8px; }.btn:hover, .btn:focus-visible { --font-size: 9px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; }.btn:hover .btn__glitch, .btn:focus-visible .btn__glitch { display: none; }.project:hover { transform: none; } }
   </style>
 </head>
 <body>
   <a class="skip" href="#profile-content">Skip to profile</a>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="https://github.com/Darkreader404"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> Darkreader404</a>
-      <span class="top-label">PROFILE / INTERACTIVE PREVIEW</span>
+  <header class="desktop-bar">
+    <div class="desktop-bar-inner">
+      <a class="brand" href="https://github.com/Darkreader404"><span class="brand-symbol" aria-hidden="true">✧</span> darkreader404 <small>/ personal system</small></a>
+      <div class="system-stamp"><span>CODE · CARE · SIGNAL</span><span>CYAN EDITION</span></div>
     </div>
   </header>
-  <div class="layout">
-    <aside class="profile" aria-label="About Geo Armstrong">
-      <div class="avatar-shell"><img class="avatar" src="../assets/profile-avatar.png" width="512" height="512" alt="Darkreader404's neon cyberpunk avatar" /></div>
-      <h1>Geo Armstrong</h1>
-      <p class="handle">Darkreader404 <span class="pronouns">· he/him</span></p>
-      <p class="bio">Code × care × market signals. Building DRONEX &amp; SCRIPT — gesture-controlled drones, AI-assisted ASL, and human-centered tech.</p>
-      <a class="profile-link" href="https://github.com/Darkreader404">View on GitHub ↗</a>
-      <ul class="interests" aria-label="Interests">
-        <li><span class="interest-icon" aria-hidden="true">⌘</span>CODE &amp; HARDWARE</li>
-        <li><span class="interest-icon pink" aria-hidden="true">+</span>HUMAN-CENTERED IDEAS</li>
-        <li><span class="interest-icon purple" aria-hidden="true">↗</span>MARKET SIGNALS</li>
-      </ul>
+  <div class="desktop">
+    <aside class="side" aria-label="About Geo Armstrong">
+      <div class="id-card window">
+        <div class="window-bar"><span class="window-title">user.card / 404</span><span class="window-controls" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="id-body">
+          <div class="avatar-frame"><img class="avatar" src="../assets/profile-avatar.png" width="512" height="512" alt="Darkreader404's existing cyber robot profile avatar" /><span class="avatar-tag" aria-hidden="true">PERSONAL AVATAR</span></div>
+          <h1 class="chrome">Geo Armstrong</h1>
+          <p class="handle">@Darkreader404 <span class="pronouns">he/him</span></p>
+          <p class="bio">Code × care × market signals. Building DRONEX &amp; SCRIPT — gesture-controlled drones, AI-assisted ASL, and human-centered tech.</p>
+          <a class="profile-link" href="https://github.com/Darkreader404">Visit my GitHub <span aria-hidden="true">↗</span></a>
+          <div class="id-foot"><span>USER // GEO</span><span>✦ 404</span></div>
+        </div>
+      </div>
+      <div class="player window" aria-label="Decorative Y2K media player">
+        <div class="player-top"><span>404.FM / VISUAL MIX</span><span aria-hidden="true">✦</span></div>
+        <div class="player-track"><span class="disc" aria-hidden="true"></span><div><div class="track-title">Midnight signals</div><div class="track-artist">CODE · CARE · CREATE</div></div><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <div class="player-line" aria-hidden="true"></div>
+      </div>
+      <div class="interests">
+        <p class="interests-label">MY CURRENT FREQUENCIES</p>
+        <ul aria-label="Interests"><li><span class="interest-icon" aria-hidden="true">⌘</span>Code &amp; hardware</li><li><span class="interest-icon pink" aria-hidden="true">+</span>Human-centered ideas</li><li><span class="interest-icon lavender" aria-hidden="true">↗</span>Market signals</li></ul>
+      </div>
     </aside>
     <main id="profile-content">
-      <div class="hero">
-        <picture>
-          <source media="(max-width: 600px)" srcset="../assets/hero-mobile.svg" />
-          <img src="../assets/hero.svg" width="1200" height="470" alt="Geo Armstrong · Darkreader404 · he/him. Code, care, and market signals." />
-        </picture>
+      <div class="location"><span>~/darkreader404 / personal_space</span><span>WELCOME TO MY CORNER</span></div>
+      <div class="hero window">
+        <div class="window-bar"><span class="window-title">darkreader.exe / start here</span><span class="window-controls" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <picture><source media="(max-width: 600px)" srcset="../assets/hero-mobile.svg" /><img src="../assets/hero.svg" width="1200" height="470" alt="Geo Armstrong · Darkreader404 · he/him. A Y2K anime cyber hacker profile for code, care, and market signals." /></picture>
       </div>
-      <nav class="navigation" aria-label="Profile sections">
-        <a class="btn" href="#selected-builds"><span>_Build</span><span class="btn__glitch" aria-hidden="true">_B_u_i_l_d_</span><span class="number" aria-hidden="true">r1</span></a>
-        <a class="btn" href="#contribution-signal"><span>_Signal</span><span class="btn__glitch" aria-hidden="true">_S_i_g_n_a_l_</span><span class="number" aria-hidden="true">r2</span></a>
-        <a class="btn" href="#activity-pulse"><span>_Pulse</span><span class="btn__glitch" aria-hidden="true">_P_u_l_s_e_</span><span class="number" aria-hidden="true">r3</span></a>
-      </nav>
-      <p class="intro">I’m <strong>Geo Armstrong</strong> — <strong>@Darkreader404</strong> · he/him. Exploring code, human-centered ideas, and market signals. My builds include a hand-controlled drone and an AI-assisted ASL communication project.</p>
+      <div class="navigation-shell window">
+        <div class="nav-caption">QUICK ACCESS<br /><span>CHOOSE A FREQUENCY ↗</span></div>
+        <nav class="navigation" aria-label="Profile sections">
+          <a class="btn" href="#selected-builds"><span>_Build</span><span class="btn__glitch" aria-hidden="true">_B_u_i_l_d_</span><span class="number" aria-hidden="true">r1</span></a>
+          <a class="btn" href="#contribution-signal"><span>_Signal</span><span class="btn__glitch" aria-hidden="true">_S_i_g_n_a_l_</span><span class="number" aria-hidden="true">r2</span></a>
+          <a class="btn" href="#activity-pulse"><span>_Pulse</span><span class="btn__glitch" aria-hidden="true">_P_u_l_s_e_</span><span class="number" aria-hidden="true">r3</span></a>
+        </nav>
+      </div>
+      <div class="intro"><span class="intro-symbol" aria-hidden="true">✧</span><p>Hey, I’m <strong>Geo</strong>. I explore the space between <strong>code, human-centered ideas, and market signals</strong>. My builds include a hand-controlled drone and an AI-assisted ASL communication project.</p></div>
       <section id="selected-builds" aria-labelledby="builds-heading">
-        <div class="section-head"><h2 id="builds-heading">Selected builds</h2><span class="section-id">01 / EXPERIMENTS</span></div>
-        <div class="projects">
-          <a class="project" href="https://github.com/Darkreader404/DRONEX"><img src="../assets/project-dronex.svg" width="584" height="300" alt="DRONEX — a mini hand-controlled drone. OpenSCAD, Python, and hardware. Open the repository." /></a>
-          <a class="project" href="https://github.com/Darkreader404/SCRIPT"><img src="../assets/project-script.svg" width="584" height="300" alt="SCRIPT — AI-assisted communication with American Sign Language. Open the repository." /></a>
-        </div>
+        <div class="section-head"><div class="section-name"><span class="section-icon" aria-hidden="true">⌁</span><h2 id="builds-heading">Selected builds</h2></div><span class="section-id">01 / OPEN PROJECTS</span></div>
+        <div class="projects"><a class="project" href="https://github.com/Darkreader404/DRONEX"><img src="../assets/project-dronex.svg" width="584" height="300" alt="DRONEX — a mini hand-controlled drone. OpenSCAD, Python, and hardware. Open the repository." /></a><a class="project" href="https://github.com/Darkreader404/SCRIPT"><img src="../assets/project-script.svg" width="584" height="300" alt="SCRIPT — AI-assisted communication with American Sign Language. Open the repository." /></a></div>
       </section>
       <section id="contribution-signal" aria-labelledby="signal-heading">
-        <div class="section-head"><h2 id="signal-heading">Contribution signal</h2><span class="section-id">02 / CODE MARKET</span></div>
-        <a class="data-card" href="https://github.com/Darkreader404?tab=overview">
-          <picture>
-            <source media="(max-width: 600px)" srcset="../assets/contributions-mobile.svg" />
-            <img src="../assets/contributions.svg" width="1200" height="340" alt="GitHub contribution calendar and weekly candlesticks. The card shows the data snapshot date; each candle represents daily counts within one of 18 trailing seven-day windows." />
-          </picture>
-        </a>
+        <div class="section-head"><div class="section-name"><span class="section-icon" aria-hidden="true">↗</span><h2 id="signal-heading">Contribution signal</h2></div><span class="section-id">02 / CODE MARKET</span></div>
+        <a class="data-card" href="https://github.com/Darkreader404?tab=overview"><picture><source media="(max-width: 600px)" srcset="../assets/contributions-mobile.svg" /><img src="../assets/contributions.svg" width="1200" height="340" alt="GitHub contribution calendar and weekly candlesticks. The card shows its data snapshot date; each candle represents daily counts within one of 18 trailing seven-day windows." /></picture></a>
       </section>
       <section id="activity-pulse" aria-labelledby="pulse-heading">
-        <div class="section-head"><h2 id="pulse-heading">Activity pulse</h2><span class="section-id">03 / CODE VITALS</span></div>
-        <a class="data-card" href="https://github.com/Darkreader404?tab=overview">
-          <picture>
-            <source media="(max-width: 600px)" srcset="../assets/activity-mobile.svg" />
-            <img src="../assets/activity.svg" width="1200" height="340" alt="Actual GitHub contributions over seven calendar days, with daily average and recent readings. The ECG is decorative; the chart measures contributions." />
-          </picture>
-        </a>
+        <div class="section-head"><div class="section-name"><span class="section-icon" aria-hidden="true">+</span><h2 id="pulse-heading">Activity pulse</h2></div><span class="section-id">03 / CODE VITALS</span></div>
+        <a class="data-card" href="https://github.com/Darkreader404?tab=overview"><picture><source media="(max-width: 600px)" srcset="../assets/activity-mobile.svg" /><img src="../assets/activity.svg" width="1200" height="340" alt="Actual GitHub contributions over seven calendar days, with daily average and recent readings. The ECG is decorative; the chart measures contributions." /></picture></a>
       </section>
-      <footer class="footer">
-        <img src="../assets/footer.svg" alt="Follow the signal. Build with purpose. Darkreader404." />
-        <p class="preview-note"><strong>Interactive browser preview.</strong> Hover or focus the purple buttons to trigger your glitch animation. GitHub READMEs display the SVG artwork and links; GitHub does not run these hover styles.</p>
-      </footer>
+      <footer class="footer"><img src="../assets/footer.svg" alt="Follow the signal. Build with purpose. Darkreader404." /><p class="preview-note"><strong>Interactive browser edition.</strong> Hover or focus the chrome tabs for your glitch animation. GitHub displays the matching artwork and links; custom hover effects stay in this preview.</p></footer>
     </main>
   </div>
+  <footer class="desktop-footer"><span>GEO ARMSTRONG / DARKREADER404</span><span>✧ MADE OF CODE &amp; CURIOSITY ✧</span></footer>
 </body>
 </html>
