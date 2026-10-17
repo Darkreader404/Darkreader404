@@ -20,12 +20,12 @@ jobs:
       - name: Check out profile
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - name: Render current GitHub calendar
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python3 scripts/update_profile.py
+        # Keep the displayed counts identical to the public profile. The bot's
+        # repository write token is used only by checkout/push, never for data.
+        run: python3 scripts/update_profile.py --public
       - name: Save refreshed panels
         run: |
-          git add assets/contributions.svg assets/activity.svg assets/profile-data.json
+          git add assets/contributions.svg assets/activity.svg assets/contributions-mobile.svg assets/activity-mobile.svg assets/profile-data.json
           if git diff --cached --quiet; then
             exit 0
           fi

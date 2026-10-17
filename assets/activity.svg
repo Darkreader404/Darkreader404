@@ -30,9 +30,9 @@
 <g><title>2026-10-17: 2 contributions</title><rect x="626" y="173.0" width="24" height="90.0" rx="10" fill="url(#pink)"/><text x="638" y="163.0" fill="#edf6ff" font-size="13" font-weight="600" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">2</text></g>
 <circle cx="638" cy="173.0" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>
 <text x="638" y="285" fill="#93a8bf" font-size="10" font-weight="400" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="middle">SAT</text>
-<text x="779" y="113" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" >LAST 7 DAYS</text>
+<text x="779" y="113" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" >PUBLIC GITHUB CONTRIBUTIONS / 7D</text>
 <text x="779" y="157" fill="#edf6ff" font-size="42" font-weight="700" font-family="Arial,Helvetica,sans-serif" >3</text>
-<text x="823" y="156" fill="#93a8bf" font-size="14" font-weight="400" font-family="Arial,Helvetica,sans-serif" >contributions</text>
+<text x="900" y="156" fill="#93a8bf" font-size="14" font-weight="400" font-family="Arial,Helvetica,sans-serif" >contributions</text>
 <text x="1156" y="153" fill="#ff739b" font-size="10" font-weight="600" font-family="'SFMono-Regular',Consolas,monospace" text-anchor="end">2 / DAY PEAK</text>
 <path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>
 <path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-width="2" fill="none"/>

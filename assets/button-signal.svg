@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="228" height="56" viewBox="0 0 228 56" role="img" aria-labelledby="title">
+  <title id="title">Signal navigation</title>
+  <!-- Clipped geometry and glitch accents adapted from the supplied radio-button component. -->
+  <defs>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b08cff" stop-opacity=".15"/><stop offset="1" stop-color="#171a30"/></linearGradient>
+    <clipPath id="shape"><path d="M28 6H210l12 11-12 27h-18v6H20L6 36V24Z"/></clipPath>
+  </defs>
+  <style>
+    .glitch{opacity:0;animation:glitch 5s steps(1,end) infinite}
+    @keyframes glitch{0%,93%,100%{opacity:0;transform:translateX(0)}94%{opacity:.75;transform:translateX(-3px)}95%{opacity:.3;transform:translateX(3px)}96%{opacity:0}97%{opacity:.5;transform:translateX(-2px)}}
+    @media(prefers-reduced-motion:reduce){.glitch{animation:none}}
+  </style>
+  <path d="M32 10H214l12 11-12 27h-18v6H24L10 40V28Z" fill="#080d18"/>
+  <path d="M28 6H210l12 11-12 27h-18v6H20L6 36V24Z" fill="url(#glass)" stroke="#b08cff" stroke-opacity=".6"/>
+  <path d="M28 6h73M6 24v12l14 14h24M178 50h14v-6h18" fill="none" stroke="#b08cff"/>
+  <g clip-path="url(#shape)" class="glitch"><path d="M6 21H222v3H6M6 38H222v2H6" fill="#b08cff"/><text x="114" y="35" text-anchor="middle" fill="#67e8f9" font-family="'Courier New',monospace" font-size="14" letter-spacing="4">_SIGNAL</text></g>
+  <text x="114" y="35" text-anchor="middle" fill="#b08cff" font-family="'Courier New',monospace" font-size="14" font-weight="700" letter-spacing="4">_SIGNAL</text>
+  <rect x="177" y="4" width="24" height="12" fill="#080d18"/><text x="189" y="13" text-anchor="middle" fill="#93a8bf" font-family="'Courier New',monospace" font-size="9">r2</text>
+</svg>

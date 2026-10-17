@@ -9,10 +9,12 @@ private counts permitted by the token/user settings; the artwork calls these
 GitHub contributions and does not imply commits, trades, or medical readings.
 
 The year panel contains exactly 365 UTC calendar dates ending today. Candles use
-18 consecutive seven-day groups: body = first/last daily count; wick = min/max
-daily count. A flat candle is a real zero/doji, not missing data. The activity
-panel uses the last seven dates from that same snapshot, with a seven-day mean.
-Today can still accrue contributions. The pulse trace is explicitly decorative.
+18 complete trailing seven-day windows (126 dates, with no padded partial week):
+body = first/last daily count; wick = min/max daily count. A flat candle is a real
+zero/doji, not missing data. The activity panel uses the last seven dates from
+that same snapshot, with a seven-day mean. Today can still accrue contributions.
+The pulse trace is explicitly decorative. Desktop and mobile SVGs use the same
+snapshot, with independent layouts rather than scaling a desktop composition.
 
 All input is validated and every output rendered before any asset is replaced.
 Network, authentication, or parsing failures leave existing assets untouched.
@@ -159,15 +161,16 @@ def text(x, y, value, size=13, color="#93a8bf", weight=400, mono=False, **attrs)
     return '<text x="%s" y="%s" fill="%s" font-size="%s" font-weight="%s" font-family="%s" %s>%s</text>' % (x, y, color, size, weight, family, extra, esc(value))
 
 
-def frame(title, description, accent):
-    return ['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">',
+def frame(title, description, accent, width=1200, height=340):
+    margin = 44 if width == 1200 else 28
+    return ['<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="0 0 %s %s" role="img" aria-labelledby="title desc">' % (width, height, width, height),
             '<title id="title">%s</title><desc id="desc">%s</desc>' % (esc(title), esc(description)),
             '<defs><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#17263b" stop-opacity=".85"/><stop offset="1" stop-color="#111d2d" stop-opacity=".45"/></linearGradient><radialGradient id="aura"><stop stop-color="%s" stop-opacity=".13"/><stop offset="1" stop-color="%s" stop-opacity="0"/></radialGradient><linearGradient id="pink" x2="0" y2="1"><stop stop-color="#ff739b"/><stop offset="1" stop-color="#ff739b" stop-opacity=".25"/></linearGradient></defs>' % (accent, accent),
             '<style>.candle{animation:candle-glow 2.6s ease-in-out infinite}.pulse{stroke-dasharray:420;animation:pulse-flow 5s linear infinite}@keyframes candle-glow{0%,100%{opacity:.6}40%{opacity:1}}@keyframes pulse-flow{from{stroke-dashoffset:840}to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.candle,.pulse{animation:none}}</style>',
-            '<rect x="1" y="1" width="1198" height="338" rx="28" fill="#080d18"/>',
-            '<ellipse cx="1010" cy="35" rx="400" ry="250" fill="url(#aura)"/>',
-            '<rect x="1.5" y="1.5" width="1197" height="337" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>',
-            '<path d="M44 1.5H1156" stroke="#ffffff" stroke-opacity=".2"/>']
+            '<rect x="1" y="1" width="%s" height="%s" rx="28" fill="#080d18"/>' % (width - 2, height - 2),
+            '<ellipse cx="%s" cy="35" rx="%s" ry="250" fill="url(#aura)"/>' % (1010 if width == 1200 else 510, 400 if width == 1200 else 240),
+            '<rect x="1.5" y="1.5" width="%s" height="%s" rx="27.5" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".17"/>' % (width - 3, height - 3),
+            '<path d="M%s 1.5H%s" stroke="#ffffff" stroke-opacity=".2"/>' % (margin, width - margin)]
 
 
 def short_date(value):
@@ -179,6 +182,15 @@ def footer(data):
     return text(44, 319, "%s · captured %s · current day may still change" % (data["source"], stamp), 10)
 
 
+def contributions_label(data):
+    return "PUBLIC GITHUB CONTRIBUTIONS" if data["source"] == "Public GitHub calendar" else "GITHUB CONTRIBUTIONS"
+
+
+def mobile_footer(data):
+    stamp = dt.datetime.fromisoformat(data["fetched_at"].replace("Z", "+00:00")).strftime("%d %b %Y %H:%M UTC")
+    return [text(28, 480, data["source"], 13), text(28, 502, "%s · current day may still change" % stamp, 13)]
+
+
 def contributions_svg(data):
     counts = [day["contributionCount"] for day in data["days"]]
     total, active, peak = sum(counts), sum(count > 0 for count in counts), max(counts)
@@ -186,7 +198,7 @@ def contributions_svg(data):
     parts += [text(44, 38, "02 / CONTRIBUTION MARKET", 11, COLORS["mint"], 600, True, letter_spacing="1.8"),
               text(44, 78, "Build a little. Compound it.", 28, "#edf6ff", 700),
               text(1156, 38, "CODE IS THE LONG GAME", 10, "#93a8bf", 400, True, text_anchor="end"),
-              text(44, 140, total, 54, "#edf6ff", 700), text(44, 163, "GITHUB CONTRIBUTIONS / 365 DAYS", 11, "#93a8bf", 500, True),
+              text(44, 140, total, 54, "#edf6ff", 700), text(44, 163, contributions_label(data) + " / 365 DAYS", 11, "#93a8bf", 500, True),
               text(44, 190, "%s active days   /   %s peak in one day" % (active, peak), 12),
               text(429, 107, "18 × 7-DAY CANDLES", 10, COLORS["mint"], 600, True),
               text(1155, 107, "body: first / last day · wick: min / max", 10, "#93a8bf", text_anchor="end")]
@@ -243,14 +255,90 @@ def activity_svg(data):
         if count:
             parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>' % (x, base - height))
         parts.append(text(x, 285, dt.date.fromisoformat(day["date"]).strftime("%a").upper(), 10, mono=True, text_anchor="middle"))
-    parts += [text(779, 113, "LAST 7 DAYS", 10, COLORS["pink"], 600, True), text(779, 157, total, 42, "#edf6ff", 700),
-              text(823, 156, "contributions", 14), text(1156, 153, "%s / DAY PEAK" % peak, 10, COLORS["pink"], 600, True, text_anchor="end"),
+    parts += [text(779, 113, contributions_label(data) + " / 7D", 10, COLORS["pink"], 600, True), text(779, 157, total, 42, "#edf6ff", 700),
+              text(900, 156, "contributions", 14), text(1156, 153, "%s / DAY PEAK" % peak, 10, COLORS["pink"], 600, True, text_anchor="end"),
               '<path d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>',
               '<path class="pulse" d="M779 198H820L830 189L840 207L853 173L867 222L883 198H919L932 189L944 207L957 184L971 211L984 198H1156" stroke="#ff739b" stroke-width="2" fill="none"/>',
               text(779, 241, "PULSE TRACE / DESIGN MOTIF", 9, "#93a8bf", mono=True),
               '<path d="M779 256H1156" stroke="#ffffff" stroke-opacity=".1"/>',
               text(779, 279, short_date(days[-1]["date"]), 10, mono=True), text(1156, 279, "%s CONTRIBUTIONS" % counts[-1], 11, "#edf6ff", 600, True, text_anchor="end"),
               footer(data), '</svg>']
+    return "\n".join(parts) + "\n"
+
+
+def contributions_mobile_svg(data):
+    counts = [day["contributionCount"] for day in data["days"]]
+    total, active, peak = sum(counts), sum(count > 0 for count in counts), max(counts)
+    parts = frame("Darkreader404 · Contribution market", "365 days of actual GitHub contributions. Total %s. Eighteen complete seven-day candles show daily first/last and low/high counts; the heatmap shows each actual day." % total, COLORS["mint"], 600, 520)
+    label_x = max(125, 28 + len(str(total)) * 30 + 18)
+    parts += [text(28, 34, "02 / CONTRIBUTION MARKET", 13, COLORS["mint"], 600, True, letter_spacing="1.2"),
+              text(28, 68, "Build a little. Compound it.", 24, "#edf6ff", 700),
+              text(28, 134, total, 50, "#edf6ff", 700),
+              text(label_x, 111, contributions_label(data), 13, "#93a8bf", 500, True),
+              text(label_x, 134, "ROLLING 365 DAYS", 13, "#93a8bf", 400, True),
+              text(28, 158, "%s active days / %s peak in one day" % (active, peak), 13),
+              text(28, 193, "18 × 7-DAY CANDLES", 13, COLORS["mint"], 600, True),
+              text(28, 214, "Body: first / last day · wick: min / max", 13)]
+    groups = [data["days"][-126:][i:i + 7] for i in range(0, 126, 7)]
+    scale = 60 / max(1, max(day["contributionCount"] for group in groups for day in group))
+    base = 294
+    parts.append('<path d="M28 294H572M28 254H572" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-dasharray="3 6"/>')
+    for index, group in enumerate(groups):
+        values = [day["contributionCount"] for day in group]
+        first, last, low, high = values[0], values[-1], min(values), max(values)
+        x = 42 + index * 30.25
+        color = COLORS["mint"] if last >= first else COLORS["pink"]
+        top, height = base - max(first, last) * scale, abs(last - first) * scale
+        title = "%s to %s: first %s, last %s, low %s, high %s contributions/day" % (group[0]["date"], group[-1]["date"], first, last, low, high)
+        parts.append('<g class="candle" style="animation-delay:%.3fs"><title>%s</title><path d="M%.1f %.1fV%.1f" stroke="%s" stroke-width="1.5"/><rect x="%.1f" y="%.1f" width="8" height="%.1f" rx="1" fill="%s"/></g>' % (index * .065, esc(title), x, base - high * scale, base - low * scale, color, x - 4, top - (1 if height == 0 else 0), max(2, height), color))
+    parts += [text(28, 316, short_date(groups[0][0]["date"]), 13, mono=True), text(572, 316, short_date(groups[-1][-1]["date"]), 13, mono=True, text_anchor="end"),
+              '<path d="M28 335H572" stroke="#ffffff" stroke-opacity=".1"/>',
+              text(28, 358, "THE YEAR, IN SIGNALS", 13, COLORS["cyan"], 600, True)]
+    first_date = dt.date.fromisoformat(data["start_date"])
+    offset = (first_date.weekday() + 1) % 7
+    palette = ["#1b2a3c", "#2c665c", "#459a7a", "#6cc99e", COLORS["mint"]]
+    for index, day in enumerate(data["days"]):
+        count = day["contributionCount"]
+        cell = offset + index
+        x, y = 38 + (cell // 7) * 10, 371 + (cell % 7) * 10
+        level = 0 if count == 0 else max(1, min(4, (count * 4 + max(1, peak) - 1) // max(1, peak)))
+        parts.append('<rect x="%s" y="%s" width="6" height="6" rx="1.5" fill="%s"><title>%s: %s contribution%s</title></rect>' % (x, y, palette[level], day["date"], count, "" if count == 1 else "s"))
+    parts += [text(28, 457, "%s — %s" % (short_date(data["start_date"]), short_date(data["end_date"])), 13), *mobile_footer(data), '</svg>']
+    return "\n".join(parts) + "\n"
+
+
+def activity_mobile_svg(data):
+    days = data["days"][-7:]
+    counts = [day["contributionCount"] for day in days]
+    total, peak, average = sum(counts), max(counts), sum(counts) / 7
+    parts = frame("Darkreader404 · Activity vitals", "Actual contributions for %s through %s: %s total, %.1f daily average. The pulse trace is a decorative medical design motif, not a medical measurement." % (days[0]["date"], days[-1]["date"], total, average), COLORS["pink"], 600, 520)
+    unit_x = max(100, 28 + len(str(total)) * 27 + 18)
+    parts += [text(28, 34, "03 / ACTIVITY VITALS", 13, COLORS["pink"], 600, True, letter_spacing="1.2"),
+              text(28, 68, "Every contribution has a pulse.", 24, "#edf6ff", 700),
+              text(28, 94, "%s — %s" % (short_date(days[0]["date"]), short_date(days[-1]["date"])), 13),
+              text(28, 123, contributions_label(data) + " / 7D", 13, COLORS["pink"], 600, True),
+              text(28, 166, total, 42, "#edf6ff", 700), text(unit_x, 160, "contributions", 15),
+              text(572, 138, "%.1f DAILY AVG" % average, 13, COLORS["pink"], 600, True, text_anchor="end"),
+              text(572, 160, "%s / DAY PEAK" % peak, 13, "#93a8bf", 400, True, text_anchor="end"),
+              text(28, 197, "7-DAY CONTRIBUTION RHYTHM", 13, "#93a8bf", 400, True)]
+    scale = 104 / max(1, peak)
+    base = 332
+    avg_y = base - average * scale
+    parts += ['<path d="M28 332H572M28 228H572" stroke="#ffffff" stroke-opacity=".08"/>',
+              '<path d="M28 %.1fH572" stroke="#ff739b" stroke-opacity=".4" stroke-dasharray="4 5"/>' % avg_y]
+    for index, day in enumerate(days):
+        count = day["contributionCount"]
+        x, height = 58 + index * 80, count * scale
+        title = "%s: %s contribution%s" % (day["date"], count, "" if count == 1 else "s")
+        parts.append('<g><title>%s</title><rect x="%s" y="%.1f" width="22" height="%.1f" rx="%s" fill="%s"/>%s</g>' % (esc(title), x - 11, base - max(3, height), max(3, height), 10 if height > 20 else 1.5, "url(#pink)" if count else "#394559", text(x, base - max(3, height) - 10, count, 13, "#edf6ff" if count else "#93a8bf", 600, text_anchor="middle")))
+        if count:
+            parts.append('<circle cx="%s" cy="%.1f" r="4" fill="#edf6ff" stroke="#ff739b" stroke-width="2"/>' % (x, base - height))
+        parts.append(text(x, 354, dt.date.fromisoformat(day["date"]).strftime("%a").upper(), 13, mono=True, text_anchor="middle"))
+    pulse = "M28 412H114L125 402L136 423L151 385L168 439L185 412H277L292 402L305 425L321 393L339 428L357 412H572"
+    parts += ['<path d="M28 370H572" stroke="#ffffff" stroke-opacity=".1"/>',
+              '<path d="%s" stroke="#ff739b" stroke-opacity=".2" stroke-width="2" fill="none"/>' % pulse,
+              '<path class="pulse" d="%s" stroke="#ff739b" stroke-width="2" fill="none"/>' % pulse,
+              text(28, 457, "Pulse trace / decorative medical motif", 13), *mobile_footer(data), '</svg>']
     return "\n".join(parts) + "\n"
 
 
@@ -266,7 +354,9 @@ def main():
             raise ValueError("Invalid GitHub username")
         data = json.loads(args.from_json.read_text()) if args.from_json else fetch_snapshot(args.user, args.public)
         validate_snapshot(data)
-        outputs = {"contributions.svg": contributions_svg(data), "activity.svg": activity_svg(data), "profile-data.json": json.dumps(data, indent=2) + "\n"}
+        outputs = {"contributions.svg": contributions_svg(data), "activity.svg": activity_svg(data),
+                   "contributions-mobile.svg": contributions_mobile_svg(data), "activity-mobile.svg": activity_mobile_svg(data),
+                   "profile-data.json": json.dumps(data, indent=2) + "\n"}
         for name, content in outputs.items():
             if name.endswith(".svg"):
                 ET.fromstring(content)
