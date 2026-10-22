@@ -2,16 +2,12 @@
   "user": "Darkreader404",
   "source": "Public GitHub calendar",
   "source_url": "https://github.com/Darkreader404?tab=overview",
-  "fetched_at": "2026-10-21T07:46:37Z",
-  "start_date": "2025-10-22",
-  "end_date": "2026-10-21",
+  "fetched_at": "2026-10-22T07:41:57Z",
+  "start_date": "2025-10-23",
+  "end_date": "2026-10-22",
   "total_contributions": 15,
   "restricted_contributions": null,
   "days": [
-    {
-      "date": "2025-10-22",
-      "contributionCount": 0
-    },
     {
       "date": "2025-10-23",
       "contributionCount": 0
@@ -1466,6 +1462,10 @@
     },
     {
       "date": "2026-10-21",
+      "contributionCount": 0
+    },
+    {
+      "date": "2026-10-22",
       "contributionCount": 0
     }
   ]
